@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-    devise_for :customers, controllers: {
+
+  devise_for :customers, controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
@@ -10,44 +10,21 @@ Rails.application.routes.draw do
   
   namespace :admin do
     root to: 'homes#top'
-     resources :orders, only: [:show, :updeta]
-     resources :genres, only: [:index, :edit]
-     resources :customers, only: [:index, :show, :edit]
-     
+    resources :orders, only: [:show, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:index, :edit]
+    resources :items, except: [:destroy]
+
   end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+
+  scope module: :public do
+    root to: 'homes#top'
+    get 'about' => 'homes#about'
+    resources :addresses, only: [:index, :edit]
+    resources :oders, only: [:new, :index, :show]
+    resources :cart_items, only: [:index, :update, :create, :destroy_all]
+    resources :customers, only: [:show, :edit, :update, :check]
+    resources :items, only: [:index, :show]
   end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/new'
-  end
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
+
 end
