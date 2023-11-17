@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
+  
+    devise_for :customers, controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+  }
+  devise_for :admin, controllers: {
+    sessions: "admin/sessions"
+  }
+  
   namespace :admin do
-    get 'orders/show'
+    root to: 'homes#top'
+     resources :orders, only: [:show, :updeta]
+     resources :genres, only: [:index, :edit]
+     resources :customers, only: [:index, :show, :edit]
+     
   end
   namespace :admin do
     get 'customers/index'
@@ -8,25 +21,11 @@ Rails.application.routes.draw do
     get 'customers/edit'
   end
   namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
     get 'items/index'
     get 'items/show'
     get 'items/edit'
     get 'items/new'
   end
-  namespace :admin do
-    get 'homes/top'
-  end
-  devise_for :customers, controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
-  }
-  devise_for :admin, controllers: {
-    sessions: "admin/sessions"
-  }
   namespace :public do
     get 'addresses/index'
     get 'addresses/edit'
