@@ -7,15 +7,15 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
-
+  
   namespace :admin do
     root to: 'homes#top'
     resources :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit]
     resources :items, except: [:destroy]
-  end
 
+  end
 
   scope module: :public do
     root to: 'homes#top'
