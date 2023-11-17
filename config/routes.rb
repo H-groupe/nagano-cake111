@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit]
     resources :oders, only: [:new, :index, :show]
     resources :cart_items, only: [:index, :update, :create, :destroy_all]
-    resources :customers, only: [:show, :edit, :update, :check]
+    resource :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'check' => 'customers#check'
+        patch 'withdraw' => 'customers#withdarw'
+      end
+    end
     resources :items, only: [:index, :show]
   end
 
