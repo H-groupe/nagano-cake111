@@ -6,9 +6,9 @@ class Admin::ItemsController < ApplicationController
   end
   
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(items_params)
      if @item.save
-      redirect_to item_path
+      redirect_to admin_items_path
      else
       @items = Item.all
       render :index
@@ -17,7 +17,7 @@ class Admin::ItemsController < ApplicationController
   
   def index
     @items = Item.all
-    
+  
   end
 
   def show
@@ -27,6 +27,11 @@ class Admin::ItemsController < ApplicationController
   def edit
     
   end
+  
+ private
 
- 
+   def items_params
+     params.require(:item).permit(:name, :introduction, :genre_id, :price_excluding_tax, :is_sales_status)
+   end
+  
 end
