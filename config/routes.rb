@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
-  
+
   namespace :admin do
     root to: 'homes#top'
     resources :orders, only: [:show, :update]
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :addresses, only: [:index, :edit]
-    resources :oders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show]
     resources :cart_items, only: [:index, :update, :create, :destroy_all]
     resource :customers, only: [:show, :edit, :update] do
       collection do
