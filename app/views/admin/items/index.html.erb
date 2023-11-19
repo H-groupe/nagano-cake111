@@ -20,12 +20,12 @@
            <td><%= link_to admin_item_path(item.id) do %><%= item.name %><% end %></td>
            <td><%= item.price_excluding_tax %></td>
            <td><%= item.genre.name %></td>
-           <td><%= item.is_sales_status ? '販売中' : '販売中止中' %></td>
+           <td><%= item.is_sales_status ? '販売中' : '販売中止中'  %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-    
+
     </div>
   </div>
 </div>
@@ -34,4 +34,3 @@
 
 
 
-   
