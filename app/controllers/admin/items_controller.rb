@@ -17,6 +17,7 @@ class Admin::ItemsController < ApplicationController
   
   def index
     @items = Item.all
+    
   end
 
   def show
@@ -32,12 +33,12 @@ class Admin::ItemsController < ApplicationController
   def update
      @item = Item.find(params[:id])
      if @item.update(items_params)
-      flash[:notice] = "You have created book successfully."
-      redirect_to admin_item_path(@item)
-    else
+       flash[:notice] = "You have created book successfully."
+       redirect_to admin_item_path(@item)
+     else
        @item = Item.all
-      render :edit
-    end
+       render :edit
+     end
   end
   
  private
