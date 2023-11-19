@@ -24,8 +24,8 @@ class Customer < ApplicationRecord
     end
   end
   
-  def active_for_authentication? #退会したユーザーがログインできないようにするためのメソッド
-    super && (is_deleted == false) #deviseの認証が有効で、かつユーザーが退会していない状態（is_deletedがfalse`）であるユーザーだけが認証できる
-  end
+  #def active_for_authentication? #退会したユーザーがログインできないようにするためのメソッド
+  #  super && (is_deleted == false) #deviseの認証が有効で、かつユーザーが退会していない状態（is_deletedがfalse`）であるユーザーだけが認証できる
+  #end
   
 end
