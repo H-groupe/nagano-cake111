@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resource :customers, only: [:show] do
       collection do
         get 'check' => 'customers#check'
-        patch 'withdraw' => 'customers#withdarw'
+        patch 'withdraw' => 'customers#withdraw'
       end
     end
     resources :items, only: [:index, :show]
