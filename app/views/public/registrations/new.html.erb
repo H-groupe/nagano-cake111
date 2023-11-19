@@ -3,11 +3,11 @@
 <%= form_with model:@customer,url: new_customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
+  
   <div class="field">
     <%= f.label :（姓） %><br />
     <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
   </div>
-
 
   <div class="field">
     <%= f.label :（名） %><br />
