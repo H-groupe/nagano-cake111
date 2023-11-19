@@ -1,0 +1,11 @@
+ja:
+    enums:
+      order:
+        payment_method:
+          credit_card: "クレジットカード"
+          transfer: "銀行振込"
+          
+          
+    errors:
+      messages:
+        not_saved: "エラーが発生したため、保存されませんでした。"
