@@ -1,2 +1,12 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<%= form_with model: @item, url: item_path, method: :post do |f| %>
+  <h1><%= @item.name %></h1>
+  
+  <p><%= number_to_currency(@item.price_excluding_tax, unit: "¥", strip_insignificant_zeros: true) %></p>
+  
+  <p><%= @item.introduction %></p>
+  
+  <%= f.select :quantity, [[1,1],[2,2],[3,3],[4,4],[5,5]] %>
+  
+  <%= link_to "カートに入れる", cart_items_path %>
+
+<% end %>

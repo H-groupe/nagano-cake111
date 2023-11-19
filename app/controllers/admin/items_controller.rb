@@ -3,16 +3,17 @@ class Admin::ItemsController < ApplicationController
   def new
     @item = Item.new
     @genres = Genre.all
+    @genre = Genre.new
   end
   
   def create
     @item = Item.new(items_params)
-     if @item.save
-      redirect_to admin_items_path
-     else
-      @items = Item.all
-      render :index
-     end
+    if @item.save
+      redirect_to admin_item_path(@item.id),notice: "商品の登録が完了しました"
+    else
+      @genres = Genre.all
+      render :new
+    end
   end
   
   def index
@@ -31,12 +32,12 @@ class Admin::ItemsController < ApplicationController
   
   def update
      @item = Item.find(params[:id])
-     if @item.update(items_params)
-      flash[:notice] = "You have created book successfully."
+    if @item.update(items_params)
+      flash[:notice] = "商品情報が更新されました"
       redirect_to admin_item_path(@item)
     else
        @item = Item.all
-      render :edit
+       render :edit
     end
   end
   
