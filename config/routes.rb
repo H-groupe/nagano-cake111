@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resources :orders, only: [:show, :update]
+    resource :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :edit]
+    resources :genres, only: [:index, :edit, :create, :update]
     resources :items, except: [:destroy]
-
+    resources :order_details, only: [:update]
   end
 
   scope module: :public do
@@ -23,9 +23,11 @@ Rails.application.routes.draw do
     get '/customers/information/edit' => 'customers#edit',as: 'customers_edit'
     patch '/customers/information' => 'customers#update',as: 'customers_update'
     resources :addresses, only: [:index, :edit]
-    resources :orders, only: [:new, :index, :show]
-    resources :cart_items, only: [:index, :update, :create, :destroy_all]
-    resource :customers, only: [:show] do
+    resources :oders, only: [:new, :index, :show]
+    resources :cart_items, only: [:index, :update, :create, :destroy ] do
+      get 'destroy_all' => 'cart_items#destroy_all'
+    end
+    resource :customers, only: [:show, :edit, :update] do
       collection do
         get 'check' => 'customers#check'
         patch 'withdraw' => 'customers#withdarw'
