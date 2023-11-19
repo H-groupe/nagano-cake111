@@ -20,7 +20,8 @@
        </div>
         <div class="form-group">
          <%= f.label :"ジャンル" %>
-         <%= f.collection_select(:genre_id, @genres, :id, :name, { prompt: "--選択してください" }) %>
+         <%= f.select :genre_id, options_for_select([["新しくジャンルを作成する", +"new"]].concat(@genres.map { |genre| [genre.name, genre.id] })),
+            { include_blank: "-- 選択してください --" }, {required: true, class: +"form-control", id: "genre-select" } %>
        </div>
        <div class="form-group">
          <%= f.label :"税抜価格" %>
@@ -40,3 +41,30 @@
   
   </tbody>
 </table>
+<!--「新しくジャンルを作成する」の選択時に発火-->
+<script>
+ # HTMLドキュメントが読み込まれた後に実行される関数
+  $(document).ready(function() {
+    var genreSelect = $("#genre-select");
+    var newGenreForm = $("#new-genre-form");
+
+ # ジャンル選択の内容がチェンジされたときに実行する処理
+    genreSelect.on("change", function() {
+      if (genreSelect.val() === "new") {
+        slideDown(newGenreForm);
+      } else {
+        slideUp(newGenreForm);
+      }
+    });
+
+  # 引数で指定された要素をスライドダウンさせる処理
+    function slideDown(element) {
+      element.fadeIn(300);
+    }
+    
+  # 引数で指定された要素をスライドアップさせる処理
+    function slideUp(element) {
+      element.fadeOut(300);
+    }
+  });
+</script>
