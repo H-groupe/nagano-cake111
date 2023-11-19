@@ -1,21 +1,47 @@
 <h1>配送先登録/一覧</h1>
 
-<%= form_with model:@address,url: addresses_path do |f| %>
+<%= form_with model: @address, url: addresses_path, method: :post do |f| %>
 
   <div class="field">
-    <%= f.label : 郵便番号(ハイフンなし) %><br />
+    <p>郵便番号(ハイフンなし)</p>
     <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
   </div>
 
   <div class="field">
-    <%= f.label :（住所） %><br />
+    <p>住所</p>
     <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
   </div>
 
   <div class="field">
-    <%= f.label :（メイ） %><br />
+    <p>宛名</p>
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+
 <% end %>
+
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <% @addresses.each do |address| %>
+  <tbody>
+    <tr>
+      <td><%= address.postal_code %> </td>
+      <td><%= address.address %></td>
+      <td><%= address.name %></td>
+      <td><%= link_to "編集する",edit_address_path(address.id) %></td>
+      <td><%= link_to "削除する",address_path(address.id),method: :delete %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
 
