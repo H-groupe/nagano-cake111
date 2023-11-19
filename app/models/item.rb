@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-   
+
   has_one_attached :item_image
   belongs_to :genre
 
@@ -14,7 +14,10 @@ class Item < ApplicationRecord
    end
    item_image.variant(resize_to_limit: [width, height]).processed
   end
-
+  
+  
+  scope :price_high_to_low, -> { order(price: :desc) }
+  scope :price_low_to_high, -> { order(price: :asc) }
 
 
 end

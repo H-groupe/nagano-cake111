@@ -9,10 +9,18 @@ class Public::RegistrationsController < Devise::RegistrationsController
   def after_sign_in_path_for(resource)
     customer_session_path
   end
+<<<<<<< HEAD
 
   def  after_sign_up_path_for(resource)
     customers_path
   end
+=======
+  
+  def  after_sign_up_path_for(resource)
+    customers_path
+  end
+  
+>>>>>>> origin/develop
 
   protected
 
