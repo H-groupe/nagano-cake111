@@ -18,4 +18,5 @@ class Public::ItemsController < ApplicationController
     
     return Item.price_low_to_high, 'price_low_to_high' if params[:price_low_to_high]
   end
+
 end
