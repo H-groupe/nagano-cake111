@@ -18,6 +18,7 @@ class Admin::ItemsController < ApplicationController
   
   def index
     @items = Item.all
+    
   end
 
   def show
@@ -37,7 +38,7 @@ class Admin::ItemsController < ApplicationController
       redirect_to admin_item_path(@item)
     else
        @item = Item.all
-      render :edit
+       render :edit
     end
   end
   
