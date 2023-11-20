@@ -1,10 +1,13 @@
 class Public::ItemsController < ApplicationController
+  before_action :authenticate_customer!, only: [:show]
+  
   def index
     @items,@sort = get_items(params)
   end
 
   def show
     @item = Item.find(params[:id])
+    @cart_item = CartItem
   end
   
   def genre_search
@@ -25,7 +28,7 @@ class Public::ItemsController < ApplicationController
   end
   
   def item_params
-    params.require(:item).permit(:item_image, :name, :price_excluding_tax, :introduction, :is_sales_status)
+    params.require(:items).permit(:item_image, :name, :price_excluding_tax, :introduction, :is_sales_status)
   end
 
 end
