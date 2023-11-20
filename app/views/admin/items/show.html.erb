@@ -1,6 +1,4 @@
-
-
-<div class = "container">
+  d<div class = "container">
   <div class = "row">
 
       <table class = "table" >
@@ -13,11 +11,9 @@
          <tr>
           <div class = "row">
             <div class = col-4>
-             <%# if @item.image.attached? %>
-               <%#= image_tag @item.image, size: "200x200" %>
-             <%# else %>
-               <%#= image_tag 'no_image', size: "200x200" %>
-             <%# end %>
+             
+               <%= image_tag @item.get_item_image(100,100) %>
+             
             </div>
 
             <div class = col-8>
