@@ -23,5 +23,9 @@ class Public::ItemsController < ApplicationController
     
     return Item.price_low_to_high, 'price_low_to_high' if params[:price_low_to_high]
   end
+  
+  def item_params
+    params.require(:item).permit(:item_image, :name, :price_excluding_tax, :introduction, :is_sales_status)
+  end
 
 end
