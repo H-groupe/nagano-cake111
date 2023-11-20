@@ -3,7 +3,7 @@ class Admin::ItemsController < ApplicationController
   def new
     @item = Item.new
     @genres = Genre.all
-    @genre = Genre.new
+    #@genre = Genre.new
   end
 
   def create
@@ -17,7 +17,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
 
   end
 
@@ -33,19 +33,19 @@ class Admin::ItemsController < ApplicationController
 
   def update
      @item = Item.find(params[:id])
-    if @item.update(items_params)
-      flash[:notice] = "商品情報が更新されました"
-      redirect_to admin_item_path(@item)
-    else
+     if @item.update(items_params)
+       flash[:notice] = "商品情報が更新されました"
+       redirect_to admin_item_path(@item)
+     else
        @item = Item.all
-       render :edit
-    end
+        render :edit
+     end
   end
 
  private
 
    def items_params
-     params.require(:item).permit(:name, :introduction, :genre_id, :price_excluding_tax, :is_sales_status)
+     params.require(:item).permit(:name, :introduction, :genre_id, :price_excluding_tax, :is_sales_status, :item_image)
    end
-   
+
 end
