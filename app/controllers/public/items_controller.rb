@@ -3,6 +3,8 @@ class Public::ItemsController < ApplicationController
   
   def index
     @items,@sort = get_items(params)
+    @items = Item.all
+    
   end
 
   def show
@@ -28,7 +30,7 @@ class Public::ItemsController < ApplicationController
   end
   
   def item_params
-    params.require(:items).permit(:genre_id,:name,:introduction,:price_excluding_tax)
+    params.require(:items).permit(:item_image, :name, :price_excluding_tax, :introduction, :is_sales_status)
   end
 
 end
