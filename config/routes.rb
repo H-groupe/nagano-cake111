@@ -22,12 +22,13 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     get '/customers/information/edit' => 'customers#edit',as: 'customers_edit'
     patch '/customers/information' => 'customers#update',as: 'customers_update'
+    get '/customers/my_page' => 'customers#show',as:'customers_show'
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
     resources :orders, only: [:new, :index, :show]
     resources :cart_items, only: [:index, :update, :create, :destroy ] do
       get 'destroy_all' => 'cart_items#destroy_all'
     end
-    resource :customers, only: [:show] do
+    resources :customers do
       collection do
         get 'check' => 'customers#check'
         patch 'withdraw' => 'customers#withdraw'

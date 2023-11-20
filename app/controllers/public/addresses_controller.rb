@@ -21,12 +21,16 @@ class Public::AddressesController < ApplicationController
     redirect_to addresses_path
   end
 
+  def update
+    @address = Address.find(params[:id])
+    @address.update(addresses_params)
+    redirect_to addresses_path
+  end
+
 
   private
   def addresses_params
-    params.require(:address).permit(:postal_code,
-                                    :address,
-                                    :name)
+    params.require(:address).permit(:name, :address, :postal_code)
   end
 
 end
