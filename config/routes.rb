@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :order_details, only: [:update]
   end
-
+  
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
@@ -25,8 +25,10 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show',as:'customers_show'
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
     resources :orders, only: [:new, :index, :show]
-    resources :cart_items, only: [:index, :update, :create, :destroy ] do
-      get 'destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete "all_destroy"   
+      end 
     end
     resources :customers do
       collection do
@@ -36,5 +38,4 @@ Rails.application.routes.draw do
     end
     resources :items, only: [:index, :show]
   end
-
 end
