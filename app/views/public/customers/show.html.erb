@@ -1,7 +1,7 @@
   <table>
     <h3>マイページ</h3>
     <h3>登録情報</h3>
-    <p><%= link_to "編集する",customers_edit_path %></p>
+    <p><%= link_to "編集する",customers_edit_path,class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %></p>
     <tr>
       <th>氏名</th>
       <td><%= @customer.family_name %>　<%= @customer.first_name %></td>
