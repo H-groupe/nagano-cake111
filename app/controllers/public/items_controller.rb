@@ -3,6 +3,8 @@ class Public::ItemsController < ApplicationController
   
   def index
     @items,@sort = get_items(params)
+    @items = Item.all
+    
   end
 
   def show
