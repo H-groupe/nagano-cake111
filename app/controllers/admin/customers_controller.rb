@@ -29,5 +29,6 @@ class Admin::CustomersController < ApplicationController
     params.require(:customer).permit(:family_name, :first_name, :family_name_kana, 
                                      :first_name_kana, :postal_code, :address, :telephone_number, 
                                      :email, :is_membership_status)
+
   end
 end
