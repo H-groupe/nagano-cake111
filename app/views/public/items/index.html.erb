@@ -12,5 +12,6 @@
     <span>
       <%= number_to_currency(item.price_excluding_tax, unit: "¥", strip_insignificant_zeros: true) %>
     </span>
+    <%= image_tag item.get_item_image(100,100) %>
   <% end %>
 <% end %>
