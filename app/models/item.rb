@@ -1,8 +1,9 @@
 class Item < ApplicationRecord
 
   has_one_attached :item_image
-  has_many :cart_items
 
+  has_many :cart_items
+  
   belongs_to :genre
 
   def get_item_image(width, height)
