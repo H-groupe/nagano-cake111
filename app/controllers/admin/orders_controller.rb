@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
   def show
-    @order = current_customer.orders
+    @orders = current_customer.orders
   end
 end
