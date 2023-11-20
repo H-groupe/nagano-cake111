@@ -1,10 +1,18 @@
 class Public::ItemsController < ApplicationController
+  before_action :authenticate_customer!, only: [:show]
+  
   def index
     @items,@sort = get_items(params)
   end
 
   def show
-    @item = item.find(params[:id])
+    @item = Item.find(params[:id])
+    @cart_item = CartItem
+  end
+  
+  def genre_search
+    @genre_id = params[:genre_id]
+    @items = Item.where(genre_id: @genre_id)
   end
   
   private
@@ -17,6 +25,10 @@ class Public::ItemsController < ApplicationController
     return Item.price_high_to_low, 'price_high_to_low' if params[:price_high_to_low]
     
     return Item.price_low_to_high, 'price_low_to_high' if params[:price_low_to_high]
+  end
+  
+  def item_params
+    params.require(:items).permit(:genre_id,:name,:introduction,:price_excluding_tax)
   end
 
 end

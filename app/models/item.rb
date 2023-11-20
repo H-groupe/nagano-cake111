@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
-
+   
   has_one_attached :item_image
+
+  has_many :cart_items
+  
   belongs_to :genre
   
   def get_item_image(width, height)
@@ -11,9 +14,9 @@ class Item < ApplicationRecord
    item_image.variant(resize_to_limit: [width, height]).processed
   end
   
-  
   scope :price_high_to_low, -> { order(price: :desc) }
   scope :price_low_to_high, -> { order(price: :asc) }
-
-
+  
+  validates :price_excluding_tax, presence: true
+  
 end
