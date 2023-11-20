@@ -24,8 +24,10 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update', as: 'customers_update'
     resources :addresses, only: [:index, :edit]
     resources :orders, only: [:new, :index, :show]
-    resources :cart_items, only: [:index, :update, :create, :destroy ] do
-      get 'destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete "all_destroy"   
+      end 
     end
     resource :customers, only: [:show] do
       collection do
