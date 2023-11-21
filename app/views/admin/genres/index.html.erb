@@ -1,5 +1,5 @@
  <div class="col-4 mx-auto form-group rounded" >
-    <table class="table table-borderless mb-0" >
+    
       <h3>ジャンル一覧・追加</h3>
       <tr>
         <%= form_with model: @genre, url: admin_genres_path do |f| %>
@@ -9,6 +9,7 @@
           </div>
         <% end %>
             <th>ジャンル</th>
+            <table class="table mb-0 table-striped" style="background:#f5f5dc" >
           <% @genres.each do |genre| %>
             <tr>
               <td><%= genre.name %></td>
