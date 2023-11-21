@@ -11,6 +11,14 @@ class Customer < ApplicationRecord
   attribute :telephone_number, :string
   attribute :postal_code, :string
   attribute :is_membership_status, :boolean
+  
+  validates :family_name, presence: true
+  validates :first_name, presence: true
+  validates :family_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :postal_code, presence: true
+  validates :address, presence: true
+  validates :telephone_number, presence: true
 
   
   def full_name #結合してフルネームを返す
