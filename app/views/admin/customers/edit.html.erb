@@ -37,7 +37,6 @@
             <td></td>
           </tr>
 
-<<<<<<< HEAD
           <tr>
             <td>電話番号</td>
             <td><%= f.text_field :telephone_number %></td>
@@ -55,7 +54,7 @@
             <td>
               <%= f.radio_button :is_membership_status, false %>
               <%= f.label :is_membership_status, "退会" %>
-              
+
               <%= f.radio_button :is_membership_status, true %>
               <%= f.label :is_membership_status, "有効" %>
             </td>
@@ -69,31 +68,7 @@
           </tr>
         </table>
       <% end %>
-=======
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= f.text_field :email %></td>
-          <td></td>
-        </tr>
 
-        <tr>
-          <td>会員ステータス</td>
-          <td>
-            <%= f.radio_button :is_deleted, :false %>
-            <%= f.label :is_deleted, "有効", { value: :false }  %>
-
-            <%= f.radio_button :is_deleted, :true %>
-            <%= f.label :is_deleted, "退会", { value: :true } %>
-          </td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
-        </tr>
-        <% end %>
-      </table>
->>>>>>> origin/develop
     </div>
   </div>
 </div>
