@@ -8,3 +8,14 @@
 
 <h1>新着商品</h1>
 
+<div class="new-items">
+  <% @new_items.each do |item| %>
+    <div class="item">
+      <%= link_to item_path(item) do %>
+        <%= image_tag(item.get_item_image(300,200), alt: item.name) %>
+      <% end %>
+      <h3><%= link_to item.name, item_path(item) %></h3>
+      <p><strong><%= link_to number_to_currency(item.price_excluding_tax) %></strong></p>
+    </div>
+  <% end %>
+</div>
