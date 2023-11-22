@@ -23,7 +23,8 @@
           <td><%#= order.cart_items.sum(:quantity) %></td>
           <td>
             <%= form_with model: order, url: admin_orders_path, method: :patch do |f| %>
-            <%= f.select :order_status, Order.statuses, class: "form-control" %>
+             <%#= f.select :status, Order.statuses, class: "form-control" %>
+             <%= f.select :status, order.status, class: "form-control" %>
             <% end %>
           </td>
         </tr>
