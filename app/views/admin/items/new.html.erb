@@ -8,7 +8,7 @@
               <div class="col-3">
                 <%= f.label "商品画像" %>
               </div>
-              <div class="col-7">
+              <div class="col-7 px-0">
               <%= f.file_field :item_image, class: "form-control-file item_image", accept: 'image/*' %>
               </div>
             </div>
@@ -16,7 +16,7 @@
               <div class="col-3">
                 <%= f.label :"商品名" %>
               </div>
-              <div class="col-7">
+              <div class="col-7 px-0">
                 <%= f.text_field :name, class: 'form-control item_name' %>
               </div>
             </div>
@@ -24,7 +24,7 @@
               <div class="col-3">
                  <%= f.label :"商品説明" %>
               </div>
-              <div class="col-7">
+              <div class="col-7 px-0">
                  <%= f.text_area :introduction, class: 'form-control item_introduction',:size=>"40x8"  %>
              </div>
             </div>
@@ -32,7 +32,7 @@
               <div class="col-3">
                 <%= f.label :"ジャンル" %>
               </div>
-              <div class="col-7">
+              <div class="col-7 px-0">
                 <%= f.select :genre_id, options_for_select(@genres.map { |genre| [genre.name, genre.id] }),
                 { include_blank: "-- 選択してください --" }, {required: true, class: +"form-control", id: "genre-select" } %>
               </div>
@@ -41,9 +41,10 @@
               <div class="col-3">
                 <%= f.label :"税抜価格" %>
               </div>
-              <div class="col-8 d-flex ">
-                <%= f.text_field :price_excluding_tax, class: 'form-control item_price'%><%= f.label :"円" %>
+              <div class="col-7 px-0">
+                <%= f.text_field :price_excluding_tax, class: 'form-control item_price'%>
               </div>
+                <%= f.label :"円" %>
             </div>
             <div class="row my-lg-2">
               <div class="col-4">
@@ -58,7 +59,7 @@
             </div>
             <div class="row my-lg-2 justify-content-md-center ">
               <div class="col-md-3 ">
-               <%= f.submit "新規登録", class: 'btn btn-success btn-lg' %>
+               <%= f.submit "新規登録", class: 'btn-lg btn-success' %>
               </div>
             </div>
           <% end %>
