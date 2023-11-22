@@ -1,13 +1,17 @@
-
-<h3>
-  ようこそ、ながのCAKEへ！<br>
-  このサイトは、ケーキ販売のECサイトになります。<br>
-  会員ではない方も商品の閲覧はできますが、<br>
-  購入には会員登録が必要になります。
-</h3>
-
+<div class="container">
+  <script src="https://app.embed.im/snow.js" defer></script>
+  <div class="main_visual"><%= image_tag '46.png',class:'main_visual_image' %>
+      <h2 class="text">
+        ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員ではない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+      </h2>
+  </div>
+</div>
+    
 <h1>新着商品</h1>
-
+      
 <div class="new-items">
   <% @new_items.each do |item| %>
     <div class="item">
