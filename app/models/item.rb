@@ -17,6 +17,8 @@ class Item < ApplicationRecord
   scope :price_high_to_low, -> { order(price: :desc) }
   scope :price_low_to_high, -> { order(price: :asc) }
 
+  validates :item_name, presence: true
+  validates :explanation, presence: true
   validates :price_excluding_tax, presence: true
 
 end
