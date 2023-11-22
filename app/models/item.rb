@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_one_attached :item_image
 
   has_many :cart_items
-  
+
   belongs_to :genre
 
   def get_item_image(width, height)
@@ -20,5 +20,8 @@ class Item < ApplicationRecord
   validates :item_name, presence: true
   validates :explanation, presence: true
   validates :price_excluding_tax, presence: true
+  def with_tax_price
+    (price_excluding_tax * 1.1).floor
+  end
 
 end

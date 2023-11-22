@@ -4,6 +4,7 @@
       <h4 class="my-5">会員情報編集</h4>
         <%= form_with model: @customer, url: customers_update_path, method: :patch do |f| %>
         <table class="table table-borderless">
+        <div><%= flash[:notice] %></div>
          <%= render "public/shared/error_messages", resource: @customer %>
         <tr>
           <td>氏名</td>
