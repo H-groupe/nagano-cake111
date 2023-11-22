@@ -2,41 +2,64 @@
   <div class="row">
     <div class="col">
       <h4 class="my-5">会員情報編集</h4>
-        <table class="table table-borderless">
         <%= form_with model: @customer, url: customers_update_path, method: :patch do |f| %>
+        <table class="table table-borderless">
+         <%= render "public/shared/error_messages", resource: @customer %>
         <tr>
           <td>氏名</td>
-          <td><%= f.text_field :family_name %>  <%= f.text_field :first_name %></td>
+          <td>
+            <%= f.text_field :family_name %>
+            <%= f.text_field :first_name %>
+            <%= display_errors(@customer, :family_name, :first_name) %>
+          </td>
         </tr>
 
         <tr>
           <td>フリガナ</td>
-          <td><%= f.text_field :family_name_kana %>  <%= f.text_field :first_name_kana %></td>
+          <td>
+            <%= f.text_field :family_name_kana %>
+            <%= f.text_field :first_name_kana %>
+            <%= display_errors(@customer, :family_name_kana, :first_name_kana) %>
+          </td>
         </tr>
 
         <tr>
           <td>郵便番号</td>
-          <td><%= f.text_field :postal_code %></td>
+          <td>
+            <%= f.text_field :postal_code %>
+            <%= display_errors(@customer, :postal_code) %>
+          </td>
         </tr>
 
         <tr>
           <td>住所</td>
-          <td><%= f.text_field :addresse %></td>
+
+          <td>
+            <%= f.text_field :address %>
+            <%= display_errors(@customer, :address) %>
+          </td>
+
         </tr>
 
         <tr>
           <td>電話番号</td>
-          <td><%= f.text_field :telephone_number %></td>
+          <td>
+            <%= f.text_field :telephone_number %>
+            <%= display_errors(@customer, :telephone_number) %>
+          </td>
         </tr>
 
         <tr>
           <td>メールアドレス</td>
-          <td><%= f.text_field :email %></td>
+          <td>
+            <%= f.text_field :email %>
+            <%= display_errors(@customer, :email) %>
+          </td>
         </tr>
 
         <tr>
           <td><%= f.submit '編集内容を保存',class:"btn btn-success" %></td>
-          <td><%= link_to "退会する", check_customers_path,class:"btn btn-danger" %></td>
+          <td><%= link_to "退会する", customers_check_path,class:"btn btn-danger" %></td>
         </tr>
         <% end %>
       </table>
