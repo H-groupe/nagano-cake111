@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :order_details, only: [:update]
   end
-  
+
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
@@ -26,11 +26,16 @@ Rails.application.routes.draw do
     get '/customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show, :create,] do
+      collection do
+        get 'complete' => 'orders#complete'
+        post 'check' => 'orders#check'
+      end
+    end
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
-        delete "all_destroy"   
-      end 
+        delete "all_destroy"
+      end
     end
     resources :items, only: [:index, :show]
   end
