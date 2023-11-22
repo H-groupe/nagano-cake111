@@ -1,5 +1,14 @@
 class Admin::OrdersController < ApplicationController
+  
+  def index
+    @orders
+  end
+  
   def show
-    @order = current_customer.orders
+    @orders = current_customer.orders
+  end
+  
+  def update
+    
   end
 end
