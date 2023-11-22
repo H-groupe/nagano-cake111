@@ -23,18 +23,14 @@ Rails.application.routes.draw do
     get '/customers/information/edit' => 'customers#edit',as: 'customers_edit'
     patch '/customers/information' => 'customers#update',as: 'customers_update'
     get '/customers/my_page' => 'customers#show',as:'customers_show'
+    get '/customers/check' => 'customers#check'
+    patch 'customers/withdraw' => 'customers#withdraw'
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
     resources :orders, only: [:new, :index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
         delete "all_destroy"   
       end 
-    end
-    resources :customers do
-      collection do
-        get 'check' => 'customers#check'
-        patch 'withdraw' => 'customers#withdraw'
-      end
     end
     resources :items, only: [:index, :show]
   end
