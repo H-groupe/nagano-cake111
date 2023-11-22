@@ -16,24 +16,25 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resource :order_details, only: [:update]
   end
-  
+
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     get '/customers/information/edit' => 'customers#edit',as: 'customers_edit'
     patch '/customers/information' => 'customers#update',as: 'customers_update'
     get '/customers/my_page' => 'customers#show',as:'customers_show'
+    get '/customers/check' => 'customers#check'
+    patch 'customers/withdraw' => 'customers#withdraw'
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show, :create,] do
+      collection do
+        get 'complete' => 'orders#complete'
+        post 'check' => 'orders#check'
+      end
+    end
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
-        delete "all_destroy"   
-      end 
-    end
-    resources :customers do
-      collection do
-        get 'check' => 'customers#check'
-        patch 'withdraw' => 'customers#withdraw'
+        delete "all_destroy"
       end
     end
     resources :items, only: [:index, :show]
