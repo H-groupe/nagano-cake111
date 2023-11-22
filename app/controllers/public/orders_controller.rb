@@ -56,14 +56,14 @@ class Public::OrdersController < ApplicationController
   def create
     @cart_items = current_customer.cart_items
     @order = current_customer.orders.new(order_params)
-       @order.save
+    @order.save
 
-      @cart_items.each do |cart_item|
-        @order_detail = OrderDetail.new(making_status: 0, price_excluding_tax: cart_item.item.price_excluding_tax, quantity: cart_item.quantity, item_id: cart_item.item_id, order_id: @order.id)
-        @order_detail.save
-      end
-      @cart_items.destroy_all
-      redirect_to orders_complete_path
+    @cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new(making_status: 0, price_including_tax: cart_item.item.price_excluding_tax, quantity: cart_item.quantity, item_id: cart_item.item_id, order_id: @order.id)
+      @order_detail.save
+    end
+    @cart_items.destroy_all
+    redirect_to complete_orders_path
 
   end
 
