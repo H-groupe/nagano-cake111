@@ -17,3 +17,26 @@
     height: 100px;
     animation: bounce 2s infinite;
 }
+.text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(255,255,255,0.4);
+  width: 100%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 0px white;
+}
+
+.main_visual_image{
+  width: 100%;
+  height: 700px;
+}
+
+.main_visual{
+  position: relative;
+}
+
