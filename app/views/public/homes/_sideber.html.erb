@@ -2,14 +2,22 @@
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
-          <th class="active text-center"><h5 class="genre_said">ジャンル検索</h5></th>
+          <th class="active text-center">
+            <h5 class="genre_said" style="color:#48120E;">
+              ジャンル検索
+            </h5>
+          </th>
         </tr>
       </thead>
       <tbody>
         <% @genres.each do |genre| %>
           <tr>
             <!-- each文でジャンル名を取り出し、クリックした際にroutesで設定したitemsのパスを通って、itemsコントローラのsearchアクションに繋げてる。パラメーターにはクリックしたジャンルのidを渡してる。 -->
-            <td class="underline"><i class="fas fa-caret-right"> <%= link_to genre.name, search_items_path(genre.id), method: :get %></i></td>
+            <td class="underline">
+              <i class="fa-brands fa-pagelines" style="color: #63bf73;">
+                <%= link_to genre.name, search_items_path(genre.id), method: :get, class: "sideberlink" %>
+              </i>
+            </td>
           </tr>
         <% end %>
       </tbody>

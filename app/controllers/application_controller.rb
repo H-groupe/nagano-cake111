@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def authenticate_any!
 
     if request.path.match(/\/admin(\/)?/) #url判定(adminですかー？って聞いてる！urlにadminを含んでいるか)
-    　#正規化表現・・・本来そんなに使わない。
+     #正規化表現・・・本来そんなに使わない。
 
      authenticate_admin! #adminログイン制限
 
