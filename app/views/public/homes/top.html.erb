@@ -4,16 +4,18 @@
     <!-- ジャンル検索サイドバー / パーシャル表示 -->
   	<%= render "public/homes/sideber", genres: @genres %>
 
-    <div class="col-xs-9  align-items-center justify-content-center">
-      <!-- 画像背景 -->
-  		<div class="bg_top">
-        <p class="text", style="font-size:30px">
-            ようこそ、ながのCAKEへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員ではない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
-        </p>
-  		</div>
+        <div class="container">
+          <script src="https://app.embed.im/snow.js" defer></script>
+          <div class="main_visual"><%= image_tag '46.png',class:'main_visual_image' %>
+              <h2 class="text">
+                ようこそ、ながのCAKEへ！<br>
+                このサイトは、ケーキ販売のECサイトになります。<br>
+                会員ではない方も商品の閲覧はできますが、<br>
+                購入には会員登録が必要になります。
+              </h2>
+          </div>
+        </div>
+
         <div class="col-xs-9">
           
       	</div>
