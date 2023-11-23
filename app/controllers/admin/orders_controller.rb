@@ -1,14 +1,14 @@
 class Admin::OrdersController < ApplicationController
-  
+
   def index
     @orders
   end
-  
+
   def show
-    @orders = current_customer.order
+    @order = Order.find(params[:id])
   end
-  
+
   def update
-    
+
   end
 end

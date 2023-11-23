@@ -3,6 +3,7 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
 
   def self.authenticate(email, password)
     # 特定の管理者のメールアドレスとパスワードの場合のみ認証を許可

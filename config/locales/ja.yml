@@ -4,7 +4,7 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
-      statuses:
+      status:
         waiting: "入金待ち"
         paid_up: "入金確認"
         in_production: "製作中"
