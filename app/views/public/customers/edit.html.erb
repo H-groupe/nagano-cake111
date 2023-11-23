@@ -1,26 +1,69 @@
-<h1>会員情報編集</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="my-5">会員情報編集</h4>
+        <%= form_with model: @customer, url: customers_update_path, method: :patch do |f| %>
+        <table class="table table-borderless">
+        <div><%= flash[:notice] %></div>
+         <%= render "public/shared/error_messages", resource: @customer %>
+        <tr>
+          <td>氏名</td>
+          <td>
+            <%= f.text_field :family_name %>
+            <%= f.text_field :first_name %>
+            <%= display_errors(@customer, :family_name, :first_name) %>
+          </td>
+        </tr>
 
-<%= form_with model: @customer, url: customers_update_path, method: :patch do |f| %>
+        <tr>
+          <td>フリガナ</td>
+          <td>
+            <%= f.text_field :family_name_kana %>
+            <%= f.text_field :first_name_kana %>
+            <%= display_errors(@customer, :family_name_kana, :first_name_kana) %>
+          </td>
+        </tr>
 
-  <h4>氏名</h4>
-  <%= f.text_field :family_name %><%= f.text_field :first_name %>
+        <tr>
+          <td>郵便番号</td>
+          <td>
+            <%= f.text_field :postal_code %>
+            <%= display_errors(@customer, :postal_code) %>
+          </td>
+        </tr>
 
-  <h4>フリガナ</h4>
-  <%= f.text_field :family_name_kana %><%= f.text_field :first_name_kana %>
+        <tr>
+          <td>住所</td>
 
-  <h4>郵便番号</h4>
-  <%= f.text_field :postal_code %>
+          <td>
+            <%= f.text_field :address %>
+            <%= display_errors(@customer, :address) %>
+          </td>
 
-  <h4>住所</h4>
-  <%= f.text_field :addresse %>
+        </tr>
 
-  <h4>電話番号</h4>
-  <%= f.text_field :telephone_number %>
+        <tr>
+          <td>電話番号</td>
+          <td>
+            <%= f.text_field :telephone_number %>
+            <%= display_errors(@customer, :telephone_number) %>
+          </td>
+        </tr>
 
-  <h4>メールアドレス</h4>
-  <%= f.text_field :email %>
+        <tr>
+          <td>メールアドレス</td>
+          <td>
+            <%= f.text_field :email %>
+            <%= display_errors(@customer, :email) %>
+          </td>
+        </tr>
 
-  <%= f.submit '編集内容を保存' %>
-  <%= link_to "退会する", check_customers_path %>
-
-<% end %>
+        <tr>
+          <td><%= f.submit '編集内容を保存',class:"btn btn-success" %></td>
+          <td><%= link_to "退会する", customers_check_path,class:"btn btn-danger" %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

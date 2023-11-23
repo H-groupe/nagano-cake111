@@ -22,18 +22,21 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     get '/customers/information/edit' => 'customers#edit',as: 'customers_edit'
     patch '/customers/information' => 'customers#update',as: 'customers_update'
-    resources :addresses, only: [:index, :edit]
-    resources :orders, only: [:new, :index, :show]
-    resources :cart_items, only: [:index, :update, :create, :destroy ] do
-      get 'destroy_all' => 'cart_items#destroy_all'
-    end
-    resource :customers, only: [:show] do
+    get '/customers/my_page' => 'customers#show',as:'customers_show'
+    get '/customers/check' => 'customers#check'
+    patch 'customers/withdraw' => 'customers#withdraw'
+    resources :addresses, only: [:index, :edit, :update, :create, :destroy]
+    resources :orders, only: [:new, :index, :show, :create,] do
       collection do
-        get 'check' => 'customers#check'
-        patch 'withdraw' => 'customers#withdarw'
+        get 'complete' => 'orders#complete'
+        post 'check' => 'orders#check'
+      end
+    end
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete "all_destroy"
       end
     end
     resources :items, only: [:index, :show]
   end
-
 end

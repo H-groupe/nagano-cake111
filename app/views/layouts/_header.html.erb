@@ -1,29 +1,33 @@
- <header>
-    <% if customer_signed_in? %>
-      <li>
-        <%= link_to "マイページ", customers_path %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", items_path %>
-      </li>
-      <li>
-        <%= link_to "カート", cart_items_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", items_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_customer_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_customer_session_path %>
-      </li>
-    <% end %>
-  </header>
+<header class="p-2">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div style="border: 4px solid #fdeff2; padding: 2px; border-radius: 5px; text-align: center;">
+          <div style="background-color: #fdeff2; border-radius: 5px;">
+            <%= link_to "ながのCAKE", root_path, class: "btn font-bold mr-3", style: "color: #48120E; font-size: 100%;" %>
+          </div>
+        </div>
+
+        <div>
+          <nav class="mb-2">
+            <ul class="navbar-nav list-group-horizontal">
+              <% if customer_signed_in? %>
+                <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;" %></li>
+                <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+              <% elsif admin_signed_in? %>
+                <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+              <% else %>
+                <li class="nav-item"><%= link_to "About", about_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
