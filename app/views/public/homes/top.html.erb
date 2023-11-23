@@ -1,10 +1,45 @@
-
-<h3>
-  ようこそ、ながのCAKEへ！<br>
-  このサイトは、ケーキ販売のECサイトになります。<br>
-  会員ではない方も商品の閲覧はできますが、<br>
-  購入には会員登録が必要になります。
-</h3>
-
-<h1>新着商品</h1>
-
+<div class="container">
+  <script src="https://app.embed.im/snow.js" defer></script>
+  <div class="main_visual"><%= image_tag '46.png',class:'main_visual_image' %>
+      <h2 class="text">
+        ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員ではない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+      </h2>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+      <div class="col-12 p-1">
+        <div class="new-item-name-title">
+          <h1>新着商品</h1>
+        </div>
+      </div>
+  </div>
+  <div class="pt-5 row">
+    <div class="col-12">
+      <div class="new-items d-flex mb-4 row">
+        <% @new_items.last(4).each do |item| %>
+          <div class="item mb-4 col-3">
+            <%= link_to item_path(item) do %>
+              <%= image_tag(item.get_item_image(300,200), alt: item.name) %>
+            <% end %>
+            <h3><%= link_to item.name, item_path(item) %></h3>
+            <p><strong><%= link_to number_to_currency(item.price_excluding_tax) %></strong></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-2 pt-2 link-dark">
+      <p class="font-weight-bold">
+        <%= link_to "全ての商品を見る＞", items_path %>
+      </p>
+    </div>
+  </div>
+</div>
