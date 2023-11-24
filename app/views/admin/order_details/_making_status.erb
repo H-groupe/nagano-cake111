@@ -2,7 +2,7 @@
   <% order.order_details.each do |order_detail| %>
     <tr>
       <td><%= order_detail.item.name %></td>
-      <td><%= order_detail.price_including_tax %>円</td>
+      <td><%= (order_detail.price_including_tax*1.10)round %>円</td>
       <td><%= order_detail.quantity %></td>
       <td><%= order_detail.price_including_tax * order_detail.quantity %>円</td>
       <%= form_with model: order_detail, url: admin_order_path(order) ,local: true do |f| %>

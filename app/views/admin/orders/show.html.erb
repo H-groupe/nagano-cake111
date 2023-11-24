@@ -46,7 +46,7 @@
         <%  @order_items.each do |order_item| %><!--注文した商品の履歴一覧をeach分で表示　-->
         <tr>
           <td><%= order_item.item.name %></td>
-          <td><%= order_item.price_including_tax %></td>
+          <td><%= order_detail.price_including_tax * 1.10 %></td>
           <td><%= order_item.quantity %></td>
           <td><%= ((order_item.price_including_tax)*(order_item.quantity)) %> </td>
         <!-- 製作ステータス変更　更新を押すと更新-->
