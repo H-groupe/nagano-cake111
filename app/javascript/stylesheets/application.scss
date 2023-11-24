@@ -130,25 +130,25 @@ a{
 background: linear-gradient(transparent 60%, #ccffcc 0%);
 }
 
-h2 {
+h5 {
   position: relative;
   padding: 1rem 2rem 1rem 4em;
-  background: #fff;
+  background: #b9e6a3;
 }
 
-h2 span {
+h5 span {
   position: absolute;
   top: -10px;
   left: 20px;
   display: inline-block;
   width: 52px;
-  height: 50px;
+  height: 40px;
   text-align: center;
-  background: #fa4141;
+  background: #eda8a8;
 }
 
-h2 span:before,
-h2 span:after {
+h5 span:before,
+h5 span:after {
   position: absolute;
   content: '';
 }
@@ -158,7 +158,7 @@ h5 span:before {
   width: 0;
   height: 0;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #d90606;
+  border-bottom: 10px solid #b37f7f;
 }
 
 h5 span:after {
@@ -166,7 +166,8 @@ h5 span:after {
   left: 0;
   display: block;
   height: 50%;
-  border: 1em solid #fa4141;
+  width: 52px;
+  border: 1em solid #eda8a8;
   border-bottom-width: 15px;
   border-bottom-color: transparent;
 }
