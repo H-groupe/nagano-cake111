@@ -3,11 +3,17 @@
   <div class = "row">
     <div class = col-12>
       <h2>商品一覧</h2>
-      <div class ="pull-right", style="color: " >
-        <i class="fa-solid fa-plus" style="color: #e3ec65;"></i>
-        <%= link_to new_admin_item_path class: "btn btn-lg" do %>
-        <i class="fa-solid fa-cake-candles" style="color: #ffe78f;"></i>
-        <% end %>
+      <div class="row d-flex"　style="float: left;">
+        <div class ="pull-right" >
+          <h5>
+            <span>
+              <i class="fa-solid fa-cake-candles" style="color: #4d382e;"></i>
+            </span>
+            <%= link_to new_admin_item_path class: "btn btn-lg" do %>
+              リボン風の見出し
+            <% end %>
+          </h5>
+        </div>
       </div>
       <table class = "table table-hover table-inverse" >
         <thead>
