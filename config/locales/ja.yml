@@ -19,13 +19,15 @@ ja:
   activerecord:
     attributes:
       customer:
-        family_name: "（姓）"
-        first_name: "（名）"
-        family_name_kana: "(セイ）"
-        first_name_kana: "(メイ)"
-        postal_code: "（郵便番号）"
-        address: "（住所）"
-        telephone_number: "(電話番号)"
+        family_name: "姓"
+        first_name: "名"
+        family_name_kana: "セイ"
+        first_name_kana: "メイ"
+        postal_code: "郵便番号"
+        address: "住所"
+        telephone_number: "電話番号"
+        email: "メールアドレス"
+        password: "パスワード"
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
