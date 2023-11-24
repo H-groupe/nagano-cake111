@@ -8,7 +8,7 @@
   <%= form_with model: @customer, url: customers_update_path, method: :patch do |f| %>
     <div><%= flash[:notice] %></div>
     <%= render "public/shared/error_messages", resource: @customer %>
-
+    
     <div class="form-row">
       <div class="col-3 form-group">
         <p class="mt-4">氏名</p>
@@ -20,10 +20,9 @@
         <%= f.text_field :first_name %>
       </div>
         <%= display_errors(@customer, :family_name, :first_name) %>
-    </div>
-
-
-    <div class="form-row">
+      </div>
+      
+      <div class="form-row">
       <div class="col-3 form-group">
         <p class="mt-4">フリガナ</p>
       </div>
@@ -93,3 +92,4 @@
 
   <% end %>
 </div>
+
