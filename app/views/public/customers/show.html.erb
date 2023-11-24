@@ -1,8 +1,8 @@
 <div class="container">
-
   <div class = "row d-flex justify-content-center">
     <font size="10" face="Times New Roman">My Page</font><br/>
   </div>
+</div>
 
   <div class="container">
     <div class="row">
@@ -31,14 +31,10 @@
             <td><%= @customer.postal_code %></td>
           </tr>
           <tr>
-            <i class="fa-solid fa-house" style="color: #5f4444;">
-              <td>住所</td>
-            </i>
             <td>住所</td>
             <td><%= @customer.address %></td>
           </tr>
           <tr>
-            <i class="fa-solid fa-house" style="color: #5f4444;"></i>
             <td>電話番号</td>
             <td><%= @customer.telephone_number %></td>
           </tr>
@@ -55,15 +51,15 @@
     <div class="col text-center p-2">
     <!--<div class="col-sm-3 text-right font-weight-bold">-->
       <span class= "pr-4">配送先</span>
-      <span class=""><%= link_to "一覧を見る",addresses_path, class: "btn rounded-pill", style: "background-color: #ffe9a9; color: #1A120B;" %></span>
+      <span class=""><%= link_to "一覧を見る",addresses_path, class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %></span>
     </div>
   </div>
 
   <div class = "row d-flex justify-content-center">
-    <div class="col text-center p-1">
+    <div class="col text-center p-2">
   <!--<div class="col-sm-3 text-right font-weight-bold">-->
       <span class= "pr-4">注文履歴</span>
-      <span class=""><%= link_to "一覧を見る",orders_path, class: "btn rounded-pill", style: "background-color: #ffe9a9; color: #1A120B;" %></span>
+      <span class=""><%= link_to "一覧を見る",orders_path, class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %></span>
     </div>
   </div>
 

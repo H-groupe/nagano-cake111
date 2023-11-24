@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-12 ml-5 mb-5">
       <h4 class="my-5">会員情報編集</h4>
         <%= form_with model: @customer, url: customers_update_path, method: :patch do |f| %>
         <table class="table table-borderless">
@@ -59,8 +59,8 @@
         </tr>
 
         <tr>
-          <td><%= f.submit '編集内容を保存',class:"btn btn-success" %></td>
-          <td><%= link_to "退会する", customers_check_path,class:"btn btn-danger" %></td>
+          <td><%= f.submit '編集内容を保存',class:"btn btn-light", style: "background-color: #ffe9a9; color: #664e3d;" %></td>
+          <td><%= link_to "退会する", customers_check_path,class:"btn btn-light", style: "background-color: #f5b1aa; color: #8d6449;" %></td>
         </tr>
         <% end %>
       </table>
