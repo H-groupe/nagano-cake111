@@ -38,18 +38,7 @@
     </div>
   </div>
   <div class = "row">
-    <%= form_with model: @order,  local:true do |f| %>
-      <div class = col-5>
-        <%= f.label "注文ステータス" %>
-      </div>
-      <div class = col-7>
-        <%#= f.select カラム名, {'選択肢': DBに保存する値}, {オプション}, {classなどの要素} %>
-        <%= f.select :status, options_for_select(Order.statuses.keys.map { |status| [t("enums.order.status.#{status}"), status] }, @order.status), { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id:"status-select" }%>
-        <%#= f.select :order_id, options_for_select(@genres.map { |genre| [genre.name, genre.id] }),
-          { include_blank: "-- 選択してください --" }, {required: true, class: +"form-control", id: "genre-select" } %>
-        <%= f.submit "更新", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+    <%= render'status', order: @order %>
   </div>
   <table class="table table-bordered">
     <thead>
@@ -62,24 +51,7 @@
       </tr>
     </thead>
     <tbody>
-    <% @order.order_details.each do |order_detail| %>
-      <tr>
-          <%#= form_with model: @order, url: admin_order_path(order.id), method: :patch do |f| %>
-            <%#= f.select :order_status, Order.order_statuses, class: "form-control" %>
-            <!--%= f.submit "更新", class: "btn btn-primary" %>-->
-          <%# end %>
-        <td><%= order_detail.item.name %></td>
-        <td><%= order_detail.price_including_tax %>円</td>
-        <td><%= order_detail.quantity %></td>
-        <td><%= order_detail.price_including_tax * order_detail.quantity %>円</td>
-        <%#= form_with model: order_detail, url: admin_order_path(order.id), method: :patch do |f| %>
-            <%#= f.select :making_status, options_for_select(Order_details.making_statuses.keys.map { |making_status| [t("enums.order_detail.making_status.#{making_status}"), making_status] }, @order_detail.making_status), { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id:"status-select" }%>
-        <%#= f.select :making_status, options_for_select(OrderDetail.making_statuses.keys.map { |making_status| [t("enums.order_detail.making_status.#{making_status}"), making_status] }, order_detail.making_status), { include_blank: "-- 選択してください --" }, { required: true, class: "form-control", id: "status-select" } %>
-        <%= form_with model: order_detail, url: admin_order_path(@order) ,local: true do |f| %>
-          <td><%= f.select :making_status, options_for_select(OrderDetail.making_statuses.keys.map { |making_status| [t("enums.order_detail.making_status.#{making_status}"), making_status] }, order_detail.making_status), { include_blank: "-- 選択してください --" }, { required: true, class: "form-control", id: "status-select" } %></td>
-          <td> <%= f.submit "更新", class: "btn btn-primary" %></td>
-        <% end %>
-      </tr>
-    <% end %>
- </tbody>
-</table>
+      <%= render 'admin/order_details/making_status', order: @order %>
+    </tbody>
+  </table>
+</div>
