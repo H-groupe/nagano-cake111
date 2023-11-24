@@ -1,17 +1,45 @@
-<h3>商品一覧</h3>
-
-<%= link_to 'Latest',items_path(latest: true) %>
-
-<%= link_to 'Price:High to Low', items_path(price_high_to_low: true) %>
-
-<%= link_to'Price:Low to High', items_path(price_low_to_high: true) %>
-
-<% @items.each do |item| %>
-  <%= link_to item_path(item) do %>
-    <p><%= item.name %></p>
-    <span>
-      <%= number_to_currency(item.price_excluding_tax, unit: "¥", strip_insignificant_zeros: true) %>
-    </span>
-    <%= image_tag item.get_item_image(100,100) %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-10">
+      <div class="row">
+        <h1>商品一覧</h1>
+      
+        <%#= link_to 'Latest',items_path(latest: true) %>
+          
+        <%#= link_to 'Price:High to Low', items_path(price_high_to_low: true) %>
+          
+        <%#= link_to'Price:Low to High', items_path(price_low_to_high: true) %>
+      </div>
+      <div class="item d-flex row">
+          <% @items.first(4).each do |item| %>
+            <div class="col-3">
+              <%= link_to item_path(item) do %>
+                <%= image_tag item.get_item_image(400,200) %>
+                <p><%= item.name %></p>
+                <span>
+                  <%= number_to_currency(item.price_excluding_tax, unit: "円", strip_insignificant_zeros: true) %>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+      <div class="item d-flex">
+        <% @items.last(4).each do |item| %>
+          <div class="col-3">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.get_item_image(300,200) %>
+              <p><%= item.name %></p>
+              <span>
+                <%= number_to_currency(item.price_excluding_tax, unit: "円", strip_insignificant_zeros: true) %>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <%= paginate @items %>
+      </div>
+    </div>
+  </div>
+</div>
