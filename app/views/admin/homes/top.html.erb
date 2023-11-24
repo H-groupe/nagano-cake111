@@ -1,6 +1,3 @@
-<div>
-  <%= flash[:notice] %>
-</div>
 
 <h3>注文履歴一覧</h3>
 
@@ -22,13 +19,8 @@
             <%= order.created_at.strftime("%Y/%m/%d %H:%M") %><% end %></td>
           <td><%= link_to admin_order_path(order.id) do %>
             <%= order.customer.family_name %><%= order.customer.first_name %><% end %></td>
-          <%#= order.customer.cart_items.sum(:quantity) %>
           <td><%= order.order_details.sum(:quantity).to_i %></td>
           <td>
-            <%#= form_with model: order, url: admin_orders_path, method: :patch do |f| %>
-             <%#= f.select :status, Order.statuses, class: "form-control" %>
-             <%#= f.select :status, order.status, class: "form-control" %>
-             <%#= f.select :status, options_for_select(Order.statuses.keys.map { |status| [t("enums.order.status.#{status}"), status] }, order.status), class: "form-control" %>
             <%= t("enums.order.status.#{order.status}") %>
           </td>
         </tr>

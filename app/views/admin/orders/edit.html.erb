@@ -26,7 +26,7 @@
       配送先
     </div>
     <div class = col-9>
-      <%= @order.address %>
+      <div>〒<%= @order.postal_code %><%= @order.address %><br><%= @order.name %></div>
     </div>
   </div>
   <div class = "row">
@@ -54,4 +54,11 @@
       <%= render 'admin/order_details/making_status', order: @order %>
     </tbody>
   </table>
+  <div>
+     <h4>商品合計     <%= @order.total_price %>円</h4>
+     <h4>送料　　　    <%= @order.postage %>円</h4>
+     <h4>請求金額合計　<%= (@order.total_price+@order.postage) %>円</h4>
+    </div>
+  </div>
+  
 </div>

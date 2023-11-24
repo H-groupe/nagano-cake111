@@ -36,7 +36,11 @@ Rails.application.routes.draw do
       collection do
         delete "all_destroy"
       end
+
     end
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show] do
+      get :search, on: :collection # ジャンル検索機能用
+
+    end
   end
 end
