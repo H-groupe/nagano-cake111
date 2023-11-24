@@ -1,4 +1,7 @@
 class Admin::OrderDetailsController < ApplicationController
+  
+ 
+  
   def update
     @order = Order.find(params[:id])
     @order_detail = OrderDetail.find(params[:id])
@@ -6,6 +9,6 @@ class Admin::OrderDetailsController < ApplicationController
        flash[:notice] = "情報が更新されました"
       
       
-     end
+     
   end
 end
