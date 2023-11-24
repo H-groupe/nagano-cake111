@@ -1,11 +1,14 @@
 class Admin::OrdersController < ApplicationController
   
   def index
-    @orders
+    
   end
   
   def show
-    @orders = current_customer.orders
+  	# 注文内容の情報を取得
+  	@order = Order.find(params[:id])
+    # 注文内容の商品を取得
+  	@order_items = @order.order_items
   end
   
   def update
