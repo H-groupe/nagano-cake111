@@ -1,33 +1,93 @@
-<header class="p-2">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <div style="border: 4px solid #fdeff2; padding: 2px; border-radius: 5px; text-align: center;">
-          <div style="background-color: #fdeff2; border-radius: 5px;">
-            <%= link_to "ながのCAKE", root_path, class: "btn font-bold mr-3", style: "color: #48120E; font-size: 100%;" %>
+<div class="container">
+  <div class="row">
+    <div class="fixed-top p-2", style = "background-color: #4d382e;">
+      <div class="d-flex content-between align-items-center md-4 ">
+        <div class="btn-group">
+      　   <div style="border: 2px solid #fdeff2; padding: 2px; border-radius: 5px; text-align: center;">
+            <div style="background-color: #fdeff2; border-radius: 5px;">
+              <%= link_to root_path, class: "btn font-bold", class: "header-logo", style: "color: #48120E;" do %>
+                <%= image_tag '002.png', size: '100x40' %>
+              <% end %>
+            </div>
           </div>
         </div>
-
-        <div>
-          <nav class="mb-2">
-            <ul class="navbar-nav list-group-horizontal">
+    
+        <div class="btn-group ml-auto">
+          <nav class="d-flex align-items-center">
+            <ul class="navbar-nav list-group-horizontal ">
               <% if customer_signed_in? %>
-                <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;" %></li>
-                <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+               <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
+                 <div style="background-color: #e2eda8; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold ", style: " color: #48120E;" %></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #e2eda8; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #e2eda8; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  </div>
+                </div>
+               <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6a5b5; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
+                  </div>
+                </div>
               <% elsif admin_signed_in? %>
-                <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+                <div style="border: 2px solid #d6d6a5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6d6a5; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #d6d6a5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6d6a5; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #d6d6a5; margin-left: 5px; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6d6a5; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #d6d6a5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6d6a5; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6a5b5; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
+                  </div>
+                </div>
               <% else %>
-                <li class="nav-item"><%= link_to "About", about_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
-                <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: "btn font-bold mr-3", style: "background-color: #e2eda8; color: #48120E;"%></li>
+              <div style="border: 2px solid #a4d5bd; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #a4d5bd; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "About", about_path, class: "btn font-bold", style: "color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #a4d5bd; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #a4d5bd; border-radius: 5px;"><li class="nav-item">
+                    <%= link_to "商品一覧", items_path, class: "btn font-bold", style: "color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #a4d5bd; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #a4d5bd; border-radius: 5px;"><li class="nav-item">
+                    <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: "btn font-bold", style: "color: #48120E;"%></li>
+                  </div>
+                </div>
+                <div style="border: 2px solid #a5c9d6; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #a5c9d6; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: "btn font-bold", style: "color: #48120E;"%></li>
+                  </div>
+                </div>
               <% end %>
             </ul>
           </nav>
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+</div>
