@@ -3,7 +3,6 @@ class Public::CustomersController < ApplicationController
 
   def show
    @customer = current_customer
-   @items = @customer.items.page(params[:page])
   end
 
   def edit

@@ -4,7 +4,6 @@ class Public::ItemsController < ApplicationController
   def index
     @items,@sort = get_items(params)
     @items = Item.page(params[:page])
-    
   end
 
   def show
