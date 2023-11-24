@@ -1,24 +1,53 @@
-<h2>ログイン</h2>
-
-<h3>会員の方はこちらからログイン</h3>
-<%= form_with model: @customer, url: new_customer_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="form-row">
+    <div class="col-3 form-group">
+      <h1>ログイン</h1>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="form-row justify-content-center">
+    <div class="col-6 form-group">
+      <h3>会員の方はこちらからログイン</h3>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <%= form_with model: @customer, url: new_customer_session_path do |f| %>
+    <div class="form-row">
+      <div class="col-3 form-group mt-5 ml-5">
+        <%= f.label :メールアドレス %>
+      </div>
+      <div class="col-6 form-group mt-5 ml-5">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-3 form-group mt-5 ml-5">
+        <%= f.label :パスワード %>
+      </div>
+      <div class="col-6 form-group mt-5 ml-5">
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row justify-content-center">
+      <div class="col-3 form-group offset-3 mt-5 ml-5">
+        <%= f.submit "ログイン",class:"btn btn-primary form-control" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-row justify-content-center">
+    <div class="col-6 form-group mt-5">
+      <h4>会員登録がお済みでない方</h4>
+    </div>
   </div>
-<% end %>
-
-<h3>会員登録がお済みでない方</h3>
-
-<div class="field">
-  <%= render "public/shared/links" %>から新規登録を行ってください。
+  <div class="form-row justify-content-center">
+    <div class="col-4 form-group mt-3 ml-3">
+        <p>
+          <div class="kakomi-te1">
+            <span class="marker-P-green">
+              <%= render "public/shared/links" %>
+            </span>
+            から新規登録を行ってください。
+          </div>
+        </p>
+    </div>
+  </div>
 </div>
+
