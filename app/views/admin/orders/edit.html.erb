@@ -1,64 +1,64 @@
-<div>
-  <%= flash[:notice] %>
-</div>
-
-<h2>注文履歴詳細</h2>
-
 <div class="container">
-  <div class = "row">
-    <div class = col-3>
-      購入者
-    </div>
-    <div class = col-lg-9>
-     <%= link_to admin_customer_path do %><%= @order.name %><% end %>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = col-3>
-      注文日
-    </div>
-    <div class = "col-9 scoreStatus_list_label registration_date">
-      <%= @order.created_at.strftime('%Y/%m/%d') %>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = col-3>
-      配送先
-    </div>
-    <div class = col-9>
-      <div>〒<%= @order.postal_code %><%= @order.address %><br><%= @order.name %></div>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = col-3>
-      支払方法
-    </div>
-    <div class = col-9>
-      <%= @order.payment_method_i18n %>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>注文履歴詳細</h2>
+      <!-- 購入詳細情報 -->
+      <table>
+        <tr>
+          <th>購入者</th>
+          <td><%= @order.customer.family_name %> <%= @order.customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td>〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></td>
+        </tr>
+        <tr>
+          <th>支払い方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+        <tr>
+        <!-- 注文ステータス変更　プルダウン　更新を押すとアップデート -->
+        <th>注文ステータス</th>
+        <td>
+           <%#= render'status', order: @order %>
+          <%= form_with model: @order, url: admin_order_path do |f| %><!--oreder controllerのupdateの飛ぶ-->
+          　 <%= f.select :status, options_for_select(Order.statuses.keys.map { |status| [t("enums.order.status.#{status}"), status] }, @order.status), { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id:"status-select" }%>
+             <%= f.submit "更新" ,class: "btn btn-primary btn-sm" %></td>
+          <% end %>
+        </tr>
+      </table>
     </div>
   </div>
   <div class = "row">
-    <%= render'status', order: @order %>
-  </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>商品名</th>
-        <th>単価（税込）</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th>製作ステータス</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render 'admin/order_details/making_status', order: @order %>
-    </tbody>
-  </table>
-  <div>
+    <div class=" col-xs-9">
+      <table class="table ">
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+          <th></th>
+        </tr>
+        <%  @order_items.each do |order_item| %><!--注文した商品の履歴一覧をeach分で表示　-->
+        <tr>
+          <td><%= order_item.item.name %></td>
+          <td><%= (order_item.price_including_tax * 1.10).round %></td>
+          <td><%= order_item.quantity %></td>
+          <td><%= (((order_item.price_including_tax * 1.10).round)*(order_item.quantity)) %> </td>
+        <!-- 製作ステータス変更　更新を押すと更新-->
+          <%= form_with model: order_item,url: admin_order_path(order_item) do |f| %>
+          <td><%= f.select :making_status, options_for_select(OrderDetail.making_statuses.keys.map { |making_status| [t("enums.order_detail.making_status.#{making_status}"), making_status] }, order_item.making_status), { include_blank: "-- 選択してください --" }, { required: true, class: "form-control", id: "status-select" } %></td><!--ステータス選択 -->
+          <td><%= f.submit "更新" ,class:"btn btn-primary btn-xs" %></td>
+          <% end %>
+        </tr>
+          <% end %>
+      </table>
+    </div>
+    <div class = "col-3 ">
      <h4>商品合計     <%= @order.total_price %>円</h4>
      <h4>送料　　　    <%= @order.postage %>円</h4>
      <h4>請求金額合計　<%= (@order.total_price+@order.postage) %>円</h4>
     </div>
   </div>
-  
 </div>

@@ -4,6 +4,7 @@ class Admin::OrdersController < ApplicationController
     	# 注文内容の情報を取得
   	@order = Order.find(params[:id])
     # 注文内容の商品を取得
+    @orders = Order.customer.id
   	@order_items = @order.order_details
     #@member = Customer.find(params[:id])
     #@orders = @member.orders
@@ -13,6 +14,7 @@ class Admin::OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
+    @order_items = @order.order_details
   end
 
   def update
