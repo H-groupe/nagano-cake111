@@ -2,56 +2,30 @@
   <%= flash[:notice] %>
 </div>
 
-<h2>注文履歴詳細</h2>
+<h3> <%= @order.customer.family_name %><%= @order.customer.first_name %>さんの注文履歴</h3>
+
 
 <div class="container">
-  <div class = "row">
-    <div class = col-3>
-      購入者
-    </div>
-    <div class = col-lg-9>
-     <%= link_to admin_customer_path do %><%= @order.name %><% end %>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = col-3>
-      注文日
-    </div>
-    <div class = "col-9 scoreStatus_list_label registration_date">
-      <%= @order.created_at.strftime('%Y/%m/%d') %>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = col-3>
-      配送先
-    </div>
-    <div class = col-9>
-      <%= @order.address %>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = col-3>
-      支払方法
-    </div>
-    <div class = col-9>
-      <%= @order.payment_method_i18n %>
-    </div>
-  </div>
-  <div class = "row">
-    <%= render'status', order: @order %>
-  </div>
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>商品名</th>
-        <th>単価（税込）</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th>製作ステータス</th>
+        <th>購入日時</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
       </tr>
     </thead>
     <tbody>
-      <%= render 'admin/order_details/making_status', order: @order %>
-    </tbody>
+      <% @orders.each do |orders| %>
+        <tr>
+          <td><%= link_to edit_admin_order_path(orders.id) do %>
+              <%= orders.created_at.strftime("%Y/%m/%d %H:%M") %><% end %></td>
+          <td><%= orders.order_details.sum(:quantity).to_i %></td>
+          <td>
+            <%= t("enums.order.status.#{orders.status}") %>
+          </td>
+        </tr>
+      <% end %>
+   </tbody>
   </table>
 </div>
+<div class = "mx-auto" ><%#= paginate @orders %></div>
