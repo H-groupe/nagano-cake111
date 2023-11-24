@@ -130,6 +130,37 @@ a{
 background: linear-gradient(transparent 60%, #ccffcc 0%);
 }
 
+.pull-right {
+  position: relative;
+  display: inline-block;
+  height: 32px;
+  margin-left: 15px;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
+  color: #fff;
+  background: #fa4141;
+}
+
+.pull-right:before {
+  position: absolute;
+  top: 0;
+  left: -15px;
+  content: '';
+  border-width: 16px 15px 16px 0;
+  border-style: solid;
+  border-color: transparent #fa4141 transparent transparent;
+}
+
+.pull-right:after {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: -7px;
+  width: 7px;
+  height: 7px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
+
 #footer{
   background-color: #4d382e;
   position: sticky;
