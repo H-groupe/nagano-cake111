@@ -1,17 +1,19 @@
 <div class="container">
   <script src="https://app.embed.im/snow.js" defer></script>
   <div class="row">
-    <div class="col-3">
+    <div class="col-2 pt-5">
       <%= render "public/homes/sideber", genres: @genres %>
     </div>
     <div class="col-9">
-      <div class="main_visual"><%= image_tag '46.png',class:'main_visual_image' %>
-        <h2 class="text">
-          ようこそ、ながのCAKEへ！<br>
-          このサイトは、ケーキ販売のECサイトになります。<br>
-          会員ではない方も商品の閲覧はできますが、<br>
-          購入には会員登録が必要になります。
-        </h2>
+      <div class="box18">
+        <div class="main_visual"><%= image_tag '46.png',class:'main_visual_image' %>
+          <h2 class="text">
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員ではない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </h2>
+        </div>
       </div>
     </div>
   </div>
@@ -20,11 +22,11 @@
   <div class="row pt-5">
       <div class="col-12 p-2">
         <div class="new-item-name-title">
-          <div style=" color: white; background: #d1bada; padding: 20px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
-                      -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #d1bada , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
-                      -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #d1bada , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
-                      border-radius: 6px; box-shadow: 0 0 0 5px #d1bada , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); font-size: 100%; ">
-            <h1 class="text-center">
+          <div style=" color: white; background: #b5a5d6; padding: 20px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                      -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #b5a5d6 , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                      -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #b5a5d6 , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                      border-radius: 6px; box-shadow: 0 0 0 5px #b5a5d6 , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); font-size: 100%; ">
+            <h1 class="text-center", style="color: #48120E">
               <i class="fa-solid fa-star fa-beat-fade" style="color: #fffca3;"></i>
                 新着商品
               <i class="fa-solid fa-star fa-beat-fade" style="color: #fffca3;"></i>
@@ -65,7 +67,10 @@
     <div class="col-10"></div>
     <div class="col-2 pt-2 link-dark">
       <p class="font-weight-bold">
-        <%= link_to "全ての商品を見る＞", items_path ,class:'top_item_alllink'%>
+        <span class="marker-P-green">
+          <%= link_to "全ての商品を見る", items_path ,class:'top_item_alllink'%>
+        </span>
+        ＞
       </p>
     </div>
   </div>
