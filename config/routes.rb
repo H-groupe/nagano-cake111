@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show',as:'customers_show'
     get '/customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
+    get "search" => "searches#search"
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
     resources :orders, only: [:new, :index, :show, :create,] do
       collection do
