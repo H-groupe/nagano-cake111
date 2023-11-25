@@ -5,7 +5,7 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail = OrderDetail.find(params[:id])
     @order = @order_detail.order
     @customer = @order.customer
-    @orders = @customer.orders
+    @orders = @customer.orders.page(params[:page])
   end
 
   
