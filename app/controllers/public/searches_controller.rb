@@ -2,10 +2,10 @@ class Public::SearchesController < ApplicationController
   
   def search
     @range = params[:range]
+    @word = params[:word]
     
     if @range == "item"
-      @items = Item.looks(params[:search],params[:word]).page(params[:page])
-      
+      @items = Item.where("name LIKE?","%#{@word}%").page(params[:page]).per(8)
       render 'search_result'
     end
   end
