@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'genres/show'
   devise_for :customers,skip: [:passwords],controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show',as:'customers_show'
     get '/customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
+    get '/genre/search' => 'searches#genre_search'
+    resources :genres, only: [:show]
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
     resources :orders, only: [:new, :index, :show, :create,] do
       collection do
