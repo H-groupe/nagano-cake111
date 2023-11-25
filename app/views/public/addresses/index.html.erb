@@ -42,7 +42,7 @@
               <td><%= address.address %></td>
               <td><%= address.name %></td>
               <td><%= link_to "編集する",edit_address_path(address.id),class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %></td>
-              <td><%= link_to "削除する",address_path(address.id),method: :delete,class:"btn btn-danger" %></td>
+              <td><%= link_to "削除する",address_path(address.id),method: :delete,class:"btn btn-light", style: "background-color: #f5b1aa; color: #664e3d;" %></td>
             </tr>
           </tbody>
           <% end %>
