@@ -4,8 +4,8 @@ class Public::SearchesController < ApplicationController
     @range = params[:range]
     
     if @range == "item"
-      @items = Item.looks(params[:search],params[:word])
-      @next_item = Item.page(params[:page])
+      @items = Item.looks(params[:search],params[:word]).page(params[:page])
+      
       render 'search_result'
     end
   end

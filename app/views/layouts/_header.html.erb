@@ -11,33 +11,30 @@
             </div>
           </div>
         </div>
-        
-        <div class="search_form">
-          <%= render 'public/items/serach' %>
-        </div>
-    
-        <div class="btn-group ml-auto">
+        <div class="btn-group ml-auto ">
           <nav class="d-flex align-items-center">
             <ul class="navbar-nav list-group-horizontal ">
               <% if customer_signed_in? %>
-               <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
-                 <div style="background-color: #e2eda8; border-radius: 5px;">
-                    <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold ", style: " color: #48120E;" %></li>
+                <div class = "row">
+                  <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #e2eda8; border-radius: 5px;">
+                      <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold ", style: " color: #48120E;" %></li>
+                    </div>
                   </div>
-                </div>
-                <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
-                  <div style="background-color: #e2eda8; border-radius: 5px;">
-                    <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #e2eda8; border-radius: 5px;">
+                      <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                    </div>
                   </div>
-                </div>
-                <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
-                  <div style="background-color: #e2eda8; border-radius: 5px;">
-                    <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                  <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #e2eda8; border-radius: 5px;">
+                      <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                    </div>
                   </div>
-                </div>
-               <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
-                  <div style="background-color: #d6a5b5; border-radius: 5px;">
-                    <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
+                  <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #d6a5b5; border-radius: 5px;">
+                      <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
+                    </div>
                   </div>
                 </div>
               <% elsif admin_signed_in? %>
@@ -88,8 +85,16 @@
                   </div>
                 </div>
               <% end %>
+              
             </ul>
           </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 d-flex justify-content-end">
+          <div class="search_form">
+            <%= render 'public/items/serach' %>
+          </div>
         </div>
       </div>
     </div>
