@@ -47,7 +47,7 @@
           <td><%= order_item.quantity %></td>
           <td><%= (((order_item.price_including_tax * 1.10).round)*(order_item.quantity)) %> </td>
         <!-- 製作ステータス変更　更新を押すと更新-->
-          <%= form_with model: order_item,url: admin_order_path(order_item) do |f| %>
+          <%= form_with model: order_item,url: admin_order_detail_path(order_item) do |f| %>
           <td><%= f.select :making_status, options_for_select(OrderDetail.making_statuses.keys.map { |making_status| [t("enums.order_detail.making_status.#{making_status}"), making_status] }, order_item.making_status), { include_blank: "-- 選択してください --" }, { required: true, class: "form-control", id: "status-select" } %></td><!--ステータス選択 -->
           <td><%= f.submit "更新" ,class:"btn btn-primary btn-xs" %></td>
           <% end %>

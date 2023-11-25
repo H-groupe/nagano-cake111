@@ -1,4 +1,4 @@
-<h3><%= order.customer.family_name %><%= order.customer.first_name %>さんの注文履歴</h3>
+<h3><%= @customer.family_name %><%= @customer.first_name %>さんの注文履歴</h3>
   <div class="container">
     <table class="table table-bordered">
       <thead>
@@ -22,4 +22,4 @@
      </tbody>
     </table>
   </div>
-  <div class = "mx-auto" ><%= paginate @orders %></div>
+  <div class = "mx-auto" ><%#= paginate @orders %></div>

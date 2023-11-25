@@ -1,3 +1,89 @@
+OrdersController
+
+class Admin::OrdersController < ApplicationController
+
+  def show
+    	# 注文内容の情報を取得
+  	@order = Order.find(params[:id])
+    # 注文内容の商品を取得
+  	@order_items = @order.order_details
+  end
+
+  def update
+    @order = Order.find(params[:id]).      |#findメソッドでpramas(パラメータ)にあるOrderテーブルの数あるIDから指定のIDを抜き取る
+    
+    @order_details = @order.order_details. |#@order(Orderテーブルから抜き取った指定IDの情報)に入ってる数ある情報から
+    　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　Order_details(注文情報)の情報のみを指定したものが@order_detailsという定義
+    
+    if@order.update(order_params)          |#if文で@order(Orderテーブルの数あるIDから抜き取った指定ID)の
+                                             order_params(ストロングパラメータに入ってる情報(permit※今回だとstatus))が
+                                             updateされたときとういう条件式
+      
+      @order_details.update_all(making_status:"wait")if @order.status == "paid_up" |# 後ろに書いてあるがif文の意味が先になる。
+                                                                                      @orderの中にあるstatusの値がpaid_upだった時
+                                                                                      @order_details(指定IDの注文詳細)の中にある
+                                                                                      making_statusをwaitに全て更新する
+      flash[:notice] = "情報が更新されました"
+    end  
+    redirect_to admin_order_path(@order.id)
+  end
+  
+  private
+
+  def order_params
+    params.require(:order).permit(:status)
+  end
+
+
+  
+end
+================================================================================================================================================================
+OrderDetailsController
+
+class Admin::OrderDetailsController < ApplicationController
+  def show
+    @customer = Customer.find(params[:id])
+    @orders = @customer.orders
+  end
+  
+  def update
+    @order_detail = OrderDetail.find(params[:id]) |#findメソッドでOrderDetailテーブルにある数あるID
+                                                    (パラメータという箱の中にあるIDという箱)から指定IDを抜き取る(ex)id:3だとid:3の注文詳細の情報
+    
+    @order = @order_detail.order   |#指定IDの注文詳細の中にあるorderの情報のみを使用するということを@orderに定義している。
+    
+    @order_details = @order.order_details.all |#各商品ごとに注文詳細があるため@order_detailsに＠orderの中にある注文詳細全ての情報であることを定義している
+    
+    is_updated = true |# 何かを判断したい時に変数として指定している。よくis_◯ ◯(◯ ◯には判断基準のものを入れる)で使われる。
+                         今回だとis_updatedは現段階でtrueであると指定している。これは下記の76行目のis_updatedの判断材料になる。
+    
+    if @order_detail.update(order_detail_params) |#if文で@order_detail(指定IDの注文詳細)のストロングパラメータの内容(permit※今回だとmaking_status)が
+                                                   updateされた場合を条件としている
+    
+       @order.update(status:"in_production")if @order_detail.making_status == "start" |#製作ステータスが製作中だと注文ステータス更新する。
+                                                                                        if文は後ろに書く。意味合いではif文が先。
+                                                                                        もし@order_detailのmaking_statusが１つでもstartの時
+                                                                                        @orderにあるstatusがin_productionに更新される。
+       flash[:notice] = "情報が更新されました"
+       @order_details.each do |order_detail|.   |#製作ステータスが全て製作完了だと自動更新されるようにするための条件。
+                                                  全て確認しないといけないためeach文で各注文詳細(ケーキやクッキーの製作状況)の製作ステータスを確認。
+       
+       if order_detail.making_status !="finish" |#if文でorder_detailの製作ステータスがfinish(製作完了)ではない時と条件指定
+       
+           is_updated = false.  |# is_updatedがfalseになる。これは下記の76行目のis_updatedの判断材料になる。
+       end
+    end
+    @order.update(status:"prepareing")if is_updated  |#if文で条件指定。is_updatedがtrueかfalseかで実行するか判断する。
+                                                       is_updatedがtrueだと@orderの注文ステータスを発送準備中に自動更新(update)する。
+                                                       is_updatedがfalseだと自動更新を行わない。
+    end
+    redirect_to admin_order_path(@order_detail.order), notice:"製作ステータスを更新しました"   
+  end
+  
+  def order_detail_params
+    params.require(:order_detail).permit(:making_status)
+  end
+end
 
 ================================================================================================================================================================
 
