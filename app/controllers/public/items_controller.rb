@@ -13,12 +13,6 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
   end
   
-  def genre_search
-    @genres = Genre.all
-    @genre_id = params[:genre_id]
-    @items = Item.where(genre_id: @genre_id)
-  end
-  
   def search
     @genres = Genre.all
     @items = Item.where(genre_id: params[:format]).page(params[:page]).per(8) # パラメーターで渡ってきたジャンルidを元に、Item内のgenre_idと完全一致する商品情報を取得している。
