@@ -6,6 +6,22 @@ class Item < ApplicationRecord
 
   belongs_to :genre
 
+  def self.looks(search,word)
+    if search == "perfect_match"
+      @items = Item.where("name LIKE?", "#{word}")
+    elsif search == "forward_match"
+      @items = Item.where("name LIKE?", "#{word}%")
+    elsif search == "backward_match"
+      @items = Item.where("name LIKE?", "%#{word}")
+    elsif search == "partial_match"
+      @items = Item.where("name LIKE?", "%#{word}%")
+    else
+      @items = Item.all
+    end
+  end
+        
+        
+  
   def get_item_image(width, height)
    unless item_image.attached?
      file_path = Rails.root.join('app/assets/images/no_image.jpg')
