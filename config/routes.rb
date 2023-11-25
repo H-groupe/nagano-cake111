@@ -11,11 +11,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resource :orders, only: [:show, :update]
+    resources :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :create, :update]
     resources :items, except: [:destroy]
-    resources :order_details, only: [:update]
+    resources :order_details, only: [:show, :update]
   end
 
   scope module: :public do
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show',as:'customers_show'
     get '/customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
+    get "search" => "searches#search"
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
     resources :orders, only: [:new, :index, :show, :create,] do
       collection do

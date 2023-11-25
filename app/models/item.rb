@@ -6,6 +6,9 @@ class Item < ApplicationRecord
 
   belongs_to :genre
 
+        
+        
+  
   def get_item_image(width, height)
    unless item_image.attached?
      file_path = Rails.root.join('app/assets/images/no_image.jpg')

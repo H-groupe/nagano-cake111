@@ -11,10 +11,14 @@
             </div>
           </div>
         </div>
+        
     
         <div class="btn-group ml-auto">
           <nav class="d-flex align-items-center">
             <ul class="navbar-nav list-group-horizontal ">
+              <div class="search_form mr-2">
+                <%= render 'public/items/serach' %>
+              </div>
               <% if customer_signed_in? %>
                <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
                  <div style="background-color: #e2eda8; border-radius: 5px;">
@@ -49,7 +53,7 @@
                 </div>
                 <div style="border: 2px solid #d6d6a5; margin-left: 5px; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
                   <div style="background-color: #d6d6a5; border-radius: 5px;">
-                    <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
+                    <li class="nav-item"><%= link_to "注文履歴一覧", admin_root_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
                   </div>
                 </div>
                 <div style="border: 2px solid #d6d6a5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
