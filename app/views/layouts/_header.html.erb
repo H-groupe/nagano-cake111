@@ -13,13 +13,14 @@
         </div>
         
     
-        <% if customer_signed_in? && current_customer.present? %>
-          <div class="text-warning ml-5"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
-        <% end %>
+        
         <div class="btn-group ml-auto">
           <nav class="d-flex align-items-center">
             <ul class="navbar-nav list-group-horizontal ">
               <% if customer_signed_in? %>
+                <% if customer_signed_in? && current_customer.present? %>
+                  <div class="text-warning mr-5 mt-2"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
+                <% end %>
                 <div class="search_form mr-2">
                   <%= render 'public/items/serach' %>
                 </div>
@@ -70,6 +71,9 @@
                   </div>
                 </div>
               <% else %>
+                <% if customer_signed_in? && current_customer.present? %>
+                  <div class="text-warning mr-5 mt-2"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
+                <% end %>
                 <div class="search_form mr-2">
                   <%= render 'public/items/serach' %>
                 </div>
