@@ -20,7 +20,8 @@ class Admin::SessionsController < Devise::SessionsController
     sign_out(resource_name)
     set_flash_message! :notice, :signed_out if signed_in? # ログアウト成功時のフラッシュメッセージを設定
   end
-
+  
+  
   # before_action :configure_sign_in_params, only: [:create]
   # GET /resource/sign_in
   # def new
