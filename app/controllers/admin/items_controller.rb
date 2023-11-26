@@ -3,7 +3,6 @@ class Admin::ItemsController < ApplicationController
   def new
     @item = Item.new
     @genres = Genre.all
-    #@genre = Genre.new
   end
 
   def create
@@ -17,7 +16,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.page(params[:page])
+    @items = Item.page(params[:page]).per(8)
 
   end
 
