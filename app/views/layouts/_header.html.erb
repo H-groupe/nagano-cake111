@@ -19,7 +19,7 @@
             <ul class="navbar-nav list-group-horizontal ">
               <% if customer_signed_in? %>
                 <div class="search_form mr-2">
-                  <%#= render 'public/items/serach' %>
+                  <%= render 'public/items/serach' %>
                 </div>
                 <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
                   <div style="background-color: #e2eda8; border-radius: 5px;">
@@ -95,19 +95,6 @@
               
             </ul>
           </nav>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 d-flex justify-content-end">
-          <% if customer_signed_in? %>
-            <div class="search_form">
-              <%= render 'public/items/serach' %>
-            </div>
-          <% else %>
-            <div class="search_form">
-              <%#= render 'admin/items/serach' %>
-            </div>
-          <% end %>
         </div>
       </div>
     </div>
