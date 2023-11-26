@@ -17,9 +17,8 @@ class ApplicationController < ActionController::Base
       #itemsコントローラーかtopアクションまたはaboutアクションが読み込まれるとき
       return # 処理を抜ける
     else
-
       authenticate_customer! # customerログイン制限（例外になりますよー！）
-
+      
     end
   end
 

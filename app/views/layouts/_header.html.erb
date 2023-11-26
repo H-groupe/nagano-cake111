@@ -13,14 +13,17 @@
         </div>
         
     
+        <% if customer_signed_in? && current_customer.present? %>
+          <div class="text-warning ml-5"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
+        <% end %>
         <div class="btn-group ml-auto">
           <nav class="d-flex align-items-center">
             <ul class="navbar-nav list-group-horizontal ">
-              <div class="search_form mr-2">
-                <%= render 'public/items/serach' %>
-              </div>
               <% if customer_signed_in? %>
-               <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
+                <div class="search_form mr-2">
+                  <%= render 'public/items/serach' %>
+                </div>
+                <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
                  <div style="background-color: #e2eda8; border-radius: 5px;">
                     <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold ", style: " color: #48120E;" %></li>
                   </div>
@@ -67,7 +70,10 @@
                   </div>
                 </div>
               <% else %>
-              <div style="border: 2px solid #a4d5bd; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                <div class="search_form mr-2">
+                  <%= render 'public/items/serach' %>
+                </div>
+                <div style="border: 2px solid #a4d5bd; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
                   <div style="background-color: #a4d5bd; border-radius: 5px;">
                     <li class="nav-item"><%= link_to "About", about_path, class: "btn font-bold", style: "color: #48120E;"%></li>
                   </div>
