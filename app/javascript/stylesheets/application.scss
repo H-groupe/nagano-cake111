@@ -214,9 +214,9 @@ background: linear-gradient(transparent 60%, #ccffcc 0%);
  margin: 2em auto;
  padding: 15px 35px 15px 25px;
  width: 90%; /* ボックス幅 */
- background-color: #fcfffa; /* ボックス背景色 */
+ background-color: #e6fbff; /* ボックス背景色 */
  color: #666666; /* 文章色 */
- box-shadow: 4px 4px 1px #FFB6C1; /* 影の色 */
+ box-shadow: 4px 4px 1px #b8dee6; /* 影の色 */
 }
 .clip-box-b::before {
  position: absolute;
@@ -238,7 +238,7 @@ background: linear-gradient(transparent 60%, #ccffcc 0%);
  top: 0px;
  width: 10px; 
  right: 20px;
- border: solid 5px #FFE4E1; /*背景色と同じ色に！*/
+ border: solid 5px #e6fbff; /*背景色と同じ色に！*/
  z-index: 2;
 }
 
