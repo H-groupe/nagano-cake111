@@ -7,19 +7,14 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_any!
   
   def authenticate_any!
-
     if request.path.match(/\/admin(\/)?/) #url判定(adminですかー？って聞いてる！urlにadminを含んでいるか)
      #正規化表現・・・本来そんなに使わない。
-
      authenticate_admin! #adminログイン制限
-
     elsif controller_name == 'items' || action_name == 'top' || action_name == 'about'
       #itemsコントローラーかtopアクションまたはaboutアクションが読み込まれるとき
       return # 処理を抜ける
     else
-
       authenticate_customer! # customerログイン制限（例外になりますよー！）
-
     end
   end
 
@@ -39,9 +34,7 @@ class ApplicationController < ActionController::Base
     #root_path
   #end
 
-  def after_sign_out_path_for(resource)
-    admin_session_path
-  end
+ 
   
  private
   def after_sign_in_path_for(resource_or_scope)
