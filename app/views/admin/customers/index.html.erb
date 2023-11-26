@@ -26,11 +26,16 @@
               <td><%= customer.id %></td>
               <td><%= link_to customer.full_name, admin_customer_path(customer) %></td>
               <td><%= customer.email %></td>
-              <td><%= customer.customer_status %></td>
+              <td>
+                <% if customer.is_membership_status == true %>
+                  <p class = "text-success">有効</p>
+                <% else%>
+                　<p class = "text-secondary">退会</p>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </table>
       </div>
     </div>
   </div>
-</div>
