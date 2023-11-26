@@ -26,13 +26,6 @@
         </tr>
       </thead>
       <tbody>
-        <% @genres.each do |genre| %>
-        <tr>
-          <td><%= genre.name %></td>
-          <td><%= link_to "編集する", edit_admin_genre_path(genre.id) ,class: "btn btn-primary" %></td>
-        </tr>
-        <% end %>
-            <th>ジャンル</th>
           <% @genres.each do |genre| %>
             <tr>
               <td><%= genre.name %></td>
