@@ -11,8 +11,6 @@
             </div>
           </div>
         </div>
-        
-    
         <% if customer_signed_in? && current_customer.present? %>
           <div class="text-warning ml-5"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
         <% end %>
@@ -21,10 +19,10 @@
             <ul class="navbar-nav list-group-horizontal ">
               <% if customer_signed_in? %>
                 <div class="search_form mr-2">
-                  <%= render 'public/items/serach' %>
+                  <%#= render 'public/items/serach' %>
                 </div>
                 <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
-                 <div style="background-color: #e2eda8; border-radius: 5px;">
+                  <div style="background-color: #e2eda8; border-radius: 5px;">
                     <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold ", style: " color: #48120E;" %></li>
                   </div>
                 </div>
@@ -38,7 +36,7 @@
                     <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
                   </div>
                 </div>
-               <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
                   <div style="background-color: #d6a5b5; border-radius: 5px;">
                     <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
                   </div>
@@ -94,8 +92,22 @@
                   </div>
                 </div>
               <% end %>
+              
             </ul>
           </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 d-flex justify-content-end">
+          <% if customer_signed_in? %>
+            <div class="search_form">
+              <%= render 'public/items/serach' %>
+            </div>
+          <% else %>
+            <div class="search_form">
+              <%#= render 'admin/items/serach' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
