@@ -1,31 +1,47 @@
 
-<h3>注文履歴一覧</h3>
-
-
 <div class="container">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>購入日時</th>
-        <th>購入者</th>
-        <th>注文個数</th>
-        <th>注文ステータス</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="row　pb-5 justify-content-md-center">
+    <div style=" color: white; background: #cbe6be; padding: 10px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                          -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                          -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                          border-radius: 6px; box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); ">
+      <h4 class="text-center", style="color: #48120E">
+        <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+          注文履歴一覧
+        <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 pt-5 d-flex">
+      <div class="col-3">購入日時</div>
+      <div class="col-3">購入者</div>
+      <div class="col-3">注文個数</div>
+      <div class="col-3">注文ステータス</div>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex">
       <% @orders.each do |order| %>
-        <tr>
-          <td><%= link_to admin_order_path(order.id) do %>
-            <%= order.created_at.strftime("%Y/%m/%d %H:%M") %><% end %></td>
-          <td><%= link_to admin_order_detail_path(order.id) do %>
-            <%= order.customer.family_name %><%= order.customer.first_name %><% end %></td>
-          <td><%= order.order_details.sum(:quantity).to_i %></td>
-          <td>
-            <%= t("enums.order.status.#{order.status}") %>
-          </td>
-        </tr>
+        <div class="col-3">
+          <%= link_to admin_order_path(order.id) do %>
+            <%= order.created_at.strftime("%Y/%m/%d %H:%M") %>
+          <% end %>
+        </div>
+        <div class="col-3">
+          <%= link_to admin_order_detail_path(order.id) do %>
+            <%= order.customer.family_name %>
+            <%= order.customer.first_name %>
+          <% end %>
+        </div>
+        <div class="col-3">
+          <%= order.order_details.sum(:quantity).to_i %>
+        </div>
+        <div class="col-3">
+          <%= t("enums.order.status.#{order.status}") %>
+        </div>
       <% end %>
-   </tbody>
-  </table>
+      </div>
+    </div>
+  </div>
 </div>
 <div class = "mx-auto" ><%= paginate @orders %></div>
