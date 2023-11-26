@@ -141,6 +141,119 @@ a{
  background: linear-gradient(transparent 60%, #ccffcc 0%);
 }
 
+.card2 {
+  width: 285px;
+  height: 285px;
+  background: #fff9f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+}
+.card-img2 {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.box25{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.box25:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box25 p {
+    margin: 0; 
+    padding: 0;
+}
+
+/* メモ　ホチキス　Ｂ */
+.Hochi-box-b {
+ position: relative;
+ margin: 2em auto;
+ padding: 30px 20px 15px;
+ width: 90%; /* ボックス幅 */
+ background: #fffafa; /* ボックス背景色 */
+ color: #48120E; /* 文章色 */
+ border: 1px solid #ccc; /* 枠線 */
+ box-shadow: 1px 1px 2px #ccc; /* 影 */
+}
+.Hochi-box-b::before, 
+.Hochi-box-b::after {
+ position: absolute;
+ content: '';
+ top: 15px;
+ width: 30px;
+ border: 1.5px solid #C0C0C0; /*ホチキス*/
+ border-radius: 20px;
+ box-shadow: 0 -1px 2px #555;
+}
+.Hochi-box-b::before { left: 80px;}
+.Hochi-box-b::after { right: 80px;}
+
+.box17{
+    
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #48120E;
+    border-bottom: solid 2px #48120E;
+}
+.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #48120E;
+}
+.box17:before {left: 10px;}
+.box17:after {right: 10px;}
+
+.clip-box-b {
+ position: relative;
+ margin: 2em auto;
+ padding: 15px 35px 15px 25px;
+ width: 90%; /* ボックス幅 */
+ background-color: #e6fbff; /* ボックス背景色 */
+ color: #666666; /* 文章色 */
+ box-shadow: 4px 4px 1px #b8dee6; /* 影の色 */
+}
+.clip-box-b::before {
+ position: absolute;
+ content: '';
+ top: -15px;
+ right: 10px;
+ height: 55px;
+ width: 15px;
+ border: 3px solid #C0C0C0; /*クリップ色 */
+ background-color: none;
+ border-radius: 12px;
+ box-shadow: 1px 1px 2px #ccc; /*クリップ影*/
+ transform: rotate(10deg);
+ z-index: 1;
+}
+.clip-box-b::after {
+ position: absolute;
+ content: '';
+ top: 0px;
+ width: 10px; 
+ right: 20px;
+ border: solid 5px #e6fbff; /*背景色と同じ色に！*/
+ z-index: 2;
+}
+
+
 #footer{
   background-color: #4d382e;
   // position: sticky;

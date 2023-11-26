@@ -1,59 +1,82 @@
-<div class = "container">
-  <h4>商品詳細</h4>
-    <div class = "row">
-      <div class = "col-4 ml-lg-6">
-        <%= image_tag @item.get_item_image(300,300) %>
-      </div>
-      <div class = col-7 >
-        <div class = "row my-lg-1">
-          <div class = col-3>
-            商品名
-          </div>
-          <div class = "col-lg-9">
-            <h5><%= @item.name %></h5>
-          </div>
-        </div>  
-        <div class = "row my-lg-4">
-          <div class = col-3>
-            商品説明
-          </div>
-          <div class = col-9>
-            <h5><%= @item.introduction %></h5>
-          </div>
-        </div>  
-        <div class = "row my-lg-4">
-          <div class = col-3>
-            ジャンル
-          </div>
-          <div class = "col-9 fs-4">
-            <%= @item.genre.name %>
-          </div>
-        </div>  
-        <div class = "row my-lg-4">
-          <div class = col-3>
-              税込価格 </br>
-             （税抜価格）
-          </div>
-          <div class = col-9>
-            <h5><%= (@item.price_excluding_tax * 1.10 ).round %>
-            (<%= @item.price_excluding_tax %>)円</h5>
-          </div>
-        </div>  
-        <div class = "row my-lg-4">
-          <div class = col-3>
-            販売ステータス
-          </div>
-          <div class = "col-9 text-success">
-           <%= @item.is_sales_status ? '販売中' : '販売中止中'  %>
-          </div>
-        </div>  
+<div class="Hochi-box-b">
+  <div class = "container">
+    <div class="row pb-5 justify-content-md-center">
+      <div style=" color: white; background: #cbe6be; padding: 10px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                          -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                          -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                          border-radius: 6px; box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); ">
+        <h4 class="text-center", style="color: #48120E">
+          <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+            商品詳細
+          <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+        </h4>
       </div>
     </div>
-</div>
-<div class = "container">
-  <div class = "row my-lg-2 justify-content-md-center" >
-    <div class = "col-md-2">
-      <%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-lg btn-success" %>
+      <div class = "row">
+        <div class = "col-4 ml-lg-6 pt-2 mt-2">
+          <section class="card2">
+            <div class="card-img my-2 pt-3 col-4">
+              <%= image_tag @item.get_item_image(250,250) %>
+            </div>
+          </section>
+        </div>
+        <div class = col-8 >
+          <div class="box17">
+            <div class = "row my-lg-1">
+              <div class = col-3 , style="color: #48120E">
+                商品名
+              </div>
+              <div class = "col-lg-9", style="color: #48120E">
+                <h5><%= @item.name %></h5>
+              </div>
+            </div>
+            <div class = "row my-lg-4", style="color: #48120E">
+              <div class = col-3>
+                商品説明
+              </div>
+              <div class = "col-9", style="color: #48120E">
+                <h5><%= @item.introduction %></h5>
+              </div>
+            </div>
+            <div class = "row my-lg-4", style="color: #48120E">
+              <div class = col-3>
+                ジャンル
+              </div>
+              <div class = "col-9 fs-4", style="color: #48120E">
+                <%= @item.genre.name %>
+              </div>
+            </div>
+            <div class = "row my-lg-4", style="color: #48120E">
+              <div class = col-3>
+                  税込価格 </br>
+                 （税抜価格）
+              </div>
+              <div class = col-9, style="color: #48120E">
+                <h5><%= (@item.price_excluding_tax * 1.10 ).round %>
+                (<%= @item.price_excluding_tax %>)円</h5>
+              </div>
+            </div>
+            <div class = "row my-lg-4", style="color: #48120E">
+              <div class = col-3>
+                販売ステータス
+              </div>
+              <div class = "col-9 text-success">
+               <%= @item.is_sales_status ? '販売中' : '販売中止中'  %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class = "container">
+    <div class = "row my-lg-2 justify-content-center", style="color: #48120E">
+      <div class = "col-md-3">
+        <div style="border: 2px solid #bee6d8; padding: 2px; border-radius: 5px; text-align: center;">
+          <div style="background-color: #bee6d8; border-radius: 5px;">
+            <%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-lg" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
