@@ -130,53 +130,118 @@ a{
 background: linear-gradient(transparent 60%, #ccffcc 0%);
 }
 
-h5 {
-  position: relative;
-  padding: 1rem 2rem 1rem 4em;
-  background: #b9e6a3;
+.card2 {
+  width: 285px;
+  height: 285px;
+  background: #fff9f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+}
+.card-img2 {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: auto;
 }
 
-h5 span {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  display: inline-block;
-  width: 52px;
-  height: 40px;
-  text-align: center;
-  background: #eda8a8;
+.box25{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.box25:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box25 p {
+    margin: 0; 
+    padding: 0;
 }
 
-h5 span:before,
-h5 span:after {
-  position: absolute;
-  content: '';
+/* メモ　ホチキス　Ｂ */
+.Hochi-box-b {
+ position: relative;
+ margin: 2em auto;
+ padding: 30px 20px 15px;
+ width: 90%; /* ボックス幅 */
+ background: #fffafa; /* ボックス背景色 */
+ color: #48120E; /* 文章色 */
+ border: 1px solid #ccc; /* 枠線 */
+ box-shadow: 1px 1px 2px #ccc; /* 影 */
+}
+.Hochi-box-b::before, 
+.Hochi-box-b::after {
+ position: absolute;
+ content: '';
+ top: 15px;
+ width: 30px;
+ border: 1.5px solid #C0C0C0; /*ホチキス*/
+ border-radius: 20px;
+ box-shadow: 0 -1px 2px #555;
+}
+.Hochi-box-b::before { left: 80px;}
+.Hochi-box-b::after { right: 80px;}
+
+.box17{
+    
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #48120E;
+    border-bottom: solid 2px #48120E;
+}
+.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #48120E;
+}
+.box17:before {left: 10px;}
+.box17:after {right: 10px;}
+
+.clip-box-b {
+ position: relative;
+ margin: 2em auto;
+ padding: 15px 35px 15px 25px;
+ width: 90%; /* ボックス幅 */
+ background-color: #fcfffa; /* ボックス背景色 */
+ color: #666666; /* 文章色 */
+ box-shadow: 4px 4px 1px #FFB6C1; /* 影の色 */
+}
+.clip-box-b::before {
+ position: absolute;
+ content: '';
+ top: -15px;
+ right: 10px;
+ height: 55px;
+ width: 15px;
+ border: 3px solid #C0C0C0; /*クリップ色 */
+ background-color: none;
+ border-radius: 12px;
+ box-shadow: 1px 1px 2px #ccc; /*クリップ影*/
+ transform: rotate(10deg);
+ z-index: 1;
+}
+.clip-box-b::after {
+ position: absolute;
+ content: '';
+ top: 0px;
+ width: 10px; 
+ right: 20px;
+ border: solid 5px #FFE4E1; /*背景色と同じ色に！*/
+ z-index: 2;
 }
 
-h5 span:before {
-  right: -10px;
-  width: 0;
-  height: 0;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #b37f7f;
-}
-
-h5 span:after {
-  top: 50%;
-  left: 0;
-  display: block;
-  height: 50%;
-  width: 52px;
-  border: 1em solid #eda8a8;
-  border-bottom-width: 15px;
-  border-bottom-color: transparent;
-}
-
-h5 span i {
-  position: relative;
-  z-index: 1;
-  color: #fff100;
-}
 
 #footer{
   background-color: #4d382e;

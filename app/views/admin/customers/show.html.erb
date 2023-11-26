@@ -1,54 +1,78 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4 class="my-5"><%= @customer.full_name %>さんの会員詳細</h4>
-      <div class="d-flex align-items-center">
-        <table class="table table-borderless">
-          <tr>
-            <th>会員ID</td>
-            <td><%= @customer.id %></td>
-          </tr>
-          <tr>
-            <th>氏名</td>
-            <td><%= @customer.family_name %>　<%= @customer.first_name %></td>
-          </tr>
-  
-          <tr>
-            <th>フリガナ</th>
-            <td><%= @customer.family_name_kana %>　<%= @customer.first_name_kana %></td>
-          </tr>
-  
-          <tr>
-            <th>郵便番号</th>
-            <td><%= @customer.postal_code %></td>
-          </tr>
-  
-          <tr>
-            <th>住所</th>
-            <td><%= @customer.address %></td>
-          </tr>
-  
-          <tr>
-            <th>電話番号</th>
-            <td><%= @customer.telephone_number %></td>
-          </tr>
-  
-          <tr>
-            <th>メールアドレス</th>
-            <td><%= @customer.email %></td>
-          </tr>
-
-          <tr>
-            <th>会員ステータス</th>
-            <th><%= @customer.customer_status %></th>
-          </tr>
-
-          <tr>
-            <td></td>
-            <td><%= link_to "編集する", edit_admin_customer_path, class:"btn btn-success" %>
-            <%= link_to "注文履歴一覧を見る", admin_root_path, class:"btn btn-primary" %></td>
-          </tr>
-        </table>
+      <div class="clip-box-b">
+        <div class="col-5 mb-5 mt-3">
+          <div style=" color: white; background: #cbe6be; padding: 5px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                      -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                      -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                      border-radius: 6px; box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); ">
+            <h4 class="text-center", style="color: #48120E">
+              <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+                <%= @customer.full_name %>さんの会員詳細
+              <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+            </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center pl-5">
+            <table class="table table-borderless" style="color: #48120E;">
+              <tr>
+                <th>会員ID</td>
+                <td><%= @customer.id %></td>
+              </tr>
+              <tr>
+                <th>氏名</td>
+                <td><%= @customer.family_name %>　<%= @customer.first_name %></td>
+              </tr>
+      
+              <tr>
+                <th>フリガナ</th>
+                <td><%= @customer.family_name_kana %>　<%= @customer.first_name_kana %></td>
+              </tr>
+      
+              <tr>
+                <th>郵便番号</th>
+                <td><%= @customer.postal_code %></td>
+              </tr>
+      
+              <tr>
+                <th>住所</th>
+                <td><%= @customer.address %></td>
+              </tr>
+      
+              <tr>
+                <th>電話番号</th>
+                <td><%= @customer.telephone_number %></td>
+              </tr>
+      
+              <tr>
+                <th>メールアドレス</th>
+                <td><%= @customer.email %></td>
+              </tr>
+    
+              <tr>
+                <th>会員ステータス</th>
+                <th><%= @customer.customer_status %></th>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="d-flex justify-content-end">
+                  <div style="border: 2px solid #bee6d8; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #bee6d8; border-radius: 5px;">
+                      <%= link_to "編集する", edit_admin_customer_path, class:"btn" %>
+                    </div>
+                  </div>
+                  <div style="border: 2px solid #bee6df; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #bee6df; border-radius: 5px;">
+                      <%= link_to "注文履歴一覧を見る", admin_root_path, class:"btn" %>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

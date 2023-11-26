@@ -1,21 +1,30 @@
-
 <div class = "container">
   <div class = "row">
-    <div class = col-12>
-      <h2>商品一覧</h2>
-      <div class="row d-flex">
-        <div class ="pull-right" >
-          <h5>
-            <span>
-              <i class="fa-solid fa-cake-candles" style="color: #4d382e;"></i>
-            </span>
-            <%= link_to new_admin_item_path class: "btn btn-lg" do %>
-              商品登録
-            <% end %>
-          </h5>
+    <div class = "col-12">
+      <div style=" color: white; background: #cbe6be; padding: 10px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                    -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                    -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                    border-radius: 6px; box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); ">
+        <h2 class="text-center", style="color: #48120E">
+          <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+            商品一覧
+          <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+        </h2>
+      </div>
+      <div class="row d-flex mb-3 pt-5 ">
+        <div class="col-2">
+          <div class ="pull-right" >
+            <div class="box25">
+              <i class="fa-solid fa-cake-candles" style="color: #e6c0c0;"></i>
+                <%= link_to new_admin_item_path class: "btn btn-lg" do %>
+                  商品登録をする
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <table class = "table table-hover table-inverse" >
+      <table class = "table table-hover table-inverse", style="color: #48120E">
         <thead>
          <tr>
            <th>商品ID</th>
