@@ -1,0 +1,10 @@
+<%#= form_with model: order, url: admin_order_path, local:false do |f| %>
+    <%#= f.select カラム名, {'選択肢': DBに保存する値}, {オプション}, {classなどの要素} %>
+    <%#= f.select :status, options_for_select(Order.statuses.keys.map { |status| [t("enums.order.status.#{status}"), status] }, order.status), { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id:"status-select" }%>
+    <%#= f.submit "更新", class: "btn btn-primary" %>
+<%# end %>
+<%= form_for @order, url: admin_order_path, local:false do |f| %><!--oreder controllerのupdateの飛ぶ-->
+　<%#= f.select :status,["入金待ち","入金確認","製作中","発送準備中","発送済"] ,style: "margin-top:10px;#" %><!--ステータス選択 -->
+　 <%= f.select :status, options_for_select(Order.statuses.keys.map { |status| [t("enums.order.status.#{status}"), status] }, @order.status), { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id:"status-select" }%>
+   <%= f.submit "更新" ,class: "btn btn-primary btn-sm" %></td>
+<% end %>
