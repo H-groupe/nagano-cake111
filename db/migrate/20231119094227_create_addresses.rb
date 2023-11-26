@@ -6,6 +6,7 @@ class CreateAddresses < ActiveRecord::Migration[6.1]
       t.text :address, null: false
       t.string :name, null: false
       t.integer :customer_id, null: false
+
       t.timestamps
     end
   end

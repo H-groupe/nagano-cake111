@@ -12,14 +12,16 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'layouts/header' %>
-    </header>
-    <main class="mt-5 pt-5 container-fluid" style="background-color:#fffff9; color: #48120E;">
-      <%= yield %>
-    </main>
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
+    <div class="wrapper">
+      <header>
+        <%= render 'layouts/header' %>
+      </header>
+      <main class="inner mt-5 pt-5 container-fluid" style="background-color:#fffff9; color: #48120E;">
+        <%= yield %>
+      </main>
+      <footer>
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
   </body>
 </html>

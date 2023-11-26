@@ -1,20 +1,19 @@
-<p id="notice"></p>
 <div class="container">
-  <div class="row">
-    <div class="col-3 alert alert-info mb-3 mx-auto text-center" role="alert">
-      <h4>注文情報確認</h4>
-    </div>
+  <div class="row d-flex justify-content-center">
+     <div class= "col text-center ">
+      <font size="7" face="Times New Roman">注文情報確認</font><br/>
+     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-9 pt-5 mx-auto text-center font-weight-bold">
-      <table class="table table-bordered border-info">
+    <div class="col-sm-12 col-md-8 col-lg-7 pt-5 mx-auto text-center font-weight-bold ">
+      <table class="table table-hover">
         <thead>
           <tr>
-            <th class="col-1 table-secondary"></th>
-            <th class="col-3 table-secondary">商品名</th>
-            <th class="col-2 table-secondary">単価(税込)</th>
-            <th class="col-2 table-secondary">数量</th>
-            <th class="col-2 table-secondary">小計</th>
+            <th class="col-1 table-danger"></th>
+            <th class="col-3 table-danger">商品名</th>
+            <th class="col-2 table-danger">単価(税込)</th>
+            <th class="col-2 table-danger">数量</th>
+            <th class="col-2 table-danger">小計</th>
           </tr>
         </thead>
         <tbody>
@@ -41,29 +40,29 @@
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <td class="table-secondary">送料</td>
+            <td class="table-danger">送料</td>
             <td><%= @postage %>円</td>
           </tr>
           <tr>
-            <td class="table-secondary">商品合計</td>
+            <td class="table-danger">商品合計</td>
             <td><%= @sum %>円</td>
           </tr>
           <tr>
-            <td class="table-secondary">請求金額</td>
+            <td class="table-danger">請求金額</td>
             <td><%= @postage + @sum %>円</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-9 pt-5 mx-auto text-center font-weight-bold">
+    <div class="col-sm-12 col-md-4 col-lg-6 pt-5 mx-auto text-center font-weight-bold">
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <td class="table-secondary">支払方法</td>
+            <td class="table-danger">支払方法</td>
             <td><%= @order.payment_method_i18n %></td>
           </tr>
           <tr>
-            <td class="table-secondary">お届け先</td>
+            <td class="table-danger">お届け先</td>
             <td>
               〒<%= @order.postal_code %>
               <%= @order.address %>
@@ -82,7 +81,11 @@
       <%= f.hidden_field :name, value: @order.name %>
       <%= f.hidden_field :postage, value: @postage %>
       <%= f.hidden_field :total_price, value: @postage + @sum %>
-      <%= f.submit "注文を確定する", class: "btn btn-success" %>
-    <% end %>
+  <div class="row">
+    <div class="col-12 ml-5 mb-5">
+      <%= f.submit "注文を確定する", class:"btn btn-light", style: "background-color: #ffe9a9; color: #664e3d;" %>
+    </div>
+  <div>
+  <% end %>
   </div>
 </div>
