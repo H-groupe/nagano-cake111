@@ -3,7 +3,7 @@
     <div class="col">
         <%= form_with model: @address, url: address_path(@address.id), method: :patch do |f| %>
         <table class="table table-borderless">
-        <h4 class="my-5">配送先編集</h4>
+        <h3 class="my-5">配送先編集</h3>
         <tr>
          <td>郵便番号</td>
          <td><%= f.text_field :postal_code %></td>
@@ -20,7 +20,7 @@
         </tr>
 
         <tr>
-         <td><%= f.submit '変更内容を保存', class:"btn btn-success" %></td>
+         <td><%= f.submit '変更内容を保存', class: "btn font-bold ", style: "background-color: #e2eda8;" %></td>
         </tr>
         </table>
         <% end %>
