@@ -18,13 +18,14 @@
         </tr>
         <tr>
         <!-- 注文ステータス変更　プルダウン　更新を押すとアップデート -->
-        <th>注文ステータス</th>
-        <td>
-           <%#= render'status', order: @order %>
-          <%= form_with model: @order, url: admin_order_path do |f| %><!--oreder controllerのupdateの飛ぶ-->
-          　 <%= f.select :status, options_for_select(Order.statuses.keys.map { |status| [t("enums.order.status.#{status}"), status] }, @order.status), { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id:"status-select" }%>
-             <%= f.submit "更新" ,class: "btn btn-primary btn-sm" %></td>
-          <% end %>
+          <th>注文ステータス</th>
+          <td>
+             <%#= render'status', order: @order %>
+            <%= form_with model: @order, url: admin_order_path do |f| %><!--oreder controllerのupdateの飛ぶ-->
+            　 <%= f.select :status, options_for_select(Order.statuses.keys.map { |status| [t("enums.order.status.#{status}"), status] }, @order.status), { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id:"status-select" }%>
+               <%= f.submit "更新" ,class: "btn btn-primary btn-sm" %>
+            <% end %>
+          </td>
         </tr>
       </table>
     </div>
@@ -55,15 +56,10 @@
           <% end %>
       </table>
     </div>
-    <div class = "col-3 ">
-      <div class = "table">
-        <thead></thead>
-        <tbody>
-         <h4>商品合計     <%= @order_items.sum { |order_item| (order_item.price_including_tax * order_item.quantity * 1.10).round } %>円</h4>
-         <h4>送料　　　    <%= @order.postage %>円</h4>
-         <h4>請求金額合計　<%= @order.total_price %>円</h4>
-        </tbody>
-      </div>
+    <div class = "col-3 mt-auto mx-auto">
+        <h4>商品合計     <%= @order_items.sum { |order_item| (order_item.price_including_tax * order_item.quantity * 1.10).round } %>円</h4>
+        <h4>送料　　　    <%= @order.postage %>円</h4>
+        <h4>請求金額合計　<%= @order.total_price %>円</h4>
     </div>
   </div>
 </div>
