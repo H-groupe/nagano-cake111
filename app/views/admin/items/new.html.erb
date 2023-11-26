@@ -1,6 +1,18 @@
 <div class = "container">
-  <h3>商品新規登録</h3>
-    <div class = "row justify-content-center">
+  <div class = ""><!--rowを入れるとレイアウトがおかしくなる-->
+    <div class = "col-12">
+      <div style=" color: white; background: #cbe6be; padding: 7px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                    -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                    -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                    border-radius: 6px; box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); ">
+        <h2 class="text-center", style="color: #48120E">
+          <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+            商品新規登録
+          <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+        </h2>
+      </div>
+    </div>
+    <div class = "row justify-content-center pt-5">
       <div class = "col-md-6">
         <div>
           <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
@@ -58,12 +70,16 @@
               </div>
             </div>
             <div class="row my-lg-2 justify-content-md-center ">
-              <div class="col-md-3 ">
-               <%= f.submit "新規登録", class: 'btn-lg btn-success' %>
+              <div class="col-4">
+                <div style="border: 2px solid #bee6d8; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #bee6d8; border-radius: 5px;">
+                    <%= f.submit "新規登録", class: 'btn btn-lg' %>
+                  </div>
+                </div>
               </div>
-            </div>
           <% end %>
         </div>
       </div>
     </div>
+  </div>
 </div>
