@@ -13,26 +13,35 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 pt-5">
+    <div class="col-12 pt-5 d-flex">
       <div class="col-3">購入日時</div>
       <div class="col-3">購入者</div>
       <div class="col-3">注文個数</div>
       <div class="col-3">注文ステータス</div>
     </div>
-        <% @orders.each do |order| %>
-          <tr>
-            <td><%= link_to admin_order_path(order.id) do %>
-              <%= order.created_at.strftime("%Y/%m/%d %H:%M") %><% end %></td>
-            <td><%= link_to admin_order_detail_path(order.id) do %>
-              <%= order.customer.family_name %><%= order.customer.first_name %><% end %></td>
-            <td><%= order.order_details.sum(:quantity).to_i %></td>
-            <td>
-              <%= t("enums.order.status.#{order.status}") %>
-            </td>
-          </tr>
-        <% end %>
-     </tbody>
-    </table>
+    <div class="row">
+      <div class="col-12 d-flex">
+      <% @orders.each do |order| %>
+        <div class="col-3">
+          <%= link_to admin_order_path(order.id) do %>
+            <%= order.created_at.strftime("%Y/%m/%d %H:%M") %>
+          <% end %>
+        </div>
+        <div class="col-3">
+          <%= link_to admin_order_detail_path(order.id) do %>
+            <%= order.customer.family_name %>
+            <%= order.customer.first_name %>
+          <% end %>
+        </div>
+        <div class="col-3">
+          <%= order.order_details.sum(:quantity).to_i %>
+        </div>
+        <div class="col-3">
+          <%= t("enums.order.status.#{order.status}") %>
+        </div>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>
 <div class = "mx-auto" ><%= paginate @orders %></div>
