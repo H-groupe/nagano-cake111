@@ -22,24 +22,23 @@
                   <%#= render 'public/items/serach' %>
                 </div>
                 <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
-                 <div style="background-color: #e2eda8; border-radius: 5px;">
+                  <div style="background-color: #e2eda8; border-radius: 5px;">
                     <li class="nav-item"><%= link_to "マイページ", customers_show_path, class: "btn font-bold ", style: " color: #48120E;" %></li>
-
                   </div>
-                  <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
-                    <div style="background-color: #e2eda8; border-radius: 5px;">
-                      <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
-                    </div>
+                </div>
+                <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #e2eda8; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
                   </div>
-                  <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
-                    <div style="background-color: #e2eda8; border-radius: 5px;">
-                      <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
-                    </div>
+                </div>
+                <div style="border: 2px solid #e2eda8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #e2eda8; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
                   </div>
-                  <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
-                    <div style="background-color: #d6a5b5; border-radius: 5px;">
-                      <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
-                    </div>
+                </div>
+                <div style="border: 2px solid #d6a5b5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6a5b5; border-radius: 5px;">
+                    <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
                   </div>
                 </div>
               <% elsif admin_signed_in? %>
