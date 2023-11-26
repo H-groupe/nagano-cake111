@@ -1,13 +1,24 @@
 <div class="container">
   <div class = "row mt-5">
-    <h2>ジャンル一覧・追加</h2>
-  </div>
+    <div class="col-12">
+      <div style=" color: white; background: #cbe6be; padding: 5px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                        -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                        -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                        border-radius: 6px; box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); ">
+          <h2 class="text-center", style="color: #48120E">
+            <i class="fa-brands fa-pagelines" style="color: #54917f;"></i>
+              ジャンル一覧・追加
+            <i class="fa-brands fa-pagelines" style="color: #54917f;"></i>
+          </h2>
+        </div>
+      </div>
+    </div>
     <!-- ジャンル用form_forで記載する時削除 -->
  
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
-        <div class="row mx-auto p-3">
+        <div class="row mx-auto pt-4">
           <div class = "col-2 ">
-            <lavel>ジャンル名</lavel>
+            <lavel>ジャンル登録</lavel>
           </div>
           <div class = "col-3">
           <%= f.text_field :name %>
@@ -19,19 +30,27 @@
     <% end %>
   
     <!-- ジャンル一覧 -->
-    <table class = "table table-hover">
-      <thead>
-        <tr class="active">
-          <th>ジャンル</th>
+    <div class="pt-4">
+      <table class = "table table-hover">
+        <thead>
+          <tr class="active">
+            <th>ジャンル</th>
+          </tr>
+        </thead>
+        <% @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+            <td>
+              <div style="border: 2px solid #ffe9a9; padding: 2px; border-radius: 5px; text-align: center;">
+                <div style="background-color: #ffe9a9; border-radius: 5px;">
+                  <%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn font-bold" %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
         </tr>
-      </thead>
-      <% @genres.each do |genre| %>
-        <tr>
-          <td><%= genre.name %></td>
-          <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %></td>
-        </tr>
-      <% end %>
-      </tr>
-    </table>
+      </table>
+    </div>
   </div>
 </div>
