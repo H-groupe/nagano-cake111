@@ -26,7 +26,14 @@
           <td><%= link_to "編集する", edit_admin_genre_path(genre.id) ,class: "btn btn-primary" %></td>
         </tr>
         <% end %>
-      </tbody>
+            <th>ジャンル</th>
+          <% @genres.each do |genre| %>
+            <tr>
+              <td><%= genre.name %></td>
+              <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %></td>
+            </tr>
+          <% end %>
+      </tr>
     </table>
   </div>
 </div>
