@@ -17,7 +17,7 @@
               <h4><%= @item.introduction %></h4>
             </div>
             <div class="row ml-5 mb-5 ", style="color:#48120E;">
-              <h4><%= number_to_currency(@item.price_excluding_tax, unit: "円", strip_insignificant_zeros: true) %></h4>
+              <h4><%= number_to_currency((@item.price_excluding_tax * 1.10 ).round, unit: "円", strip_insignificant_zeros: true) %></h4>
               <p>(税込)</p>
             </div>
             <div class="form-row ml-5 mb-5">

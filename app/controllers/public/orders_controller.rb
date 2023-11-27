@@ -4,7 +4,6 @@ class Public::OrdersController < ApplicationController
 
   def new
     if current_customer.cart_items.blank?
-      flash[:notice] = "カートに商品を入れてください"
       redirect_to cart_items_path
     else
       @order = Order.new
@@ -44,7 +43,6 @@ class Public::OrdersController < ApplicationController
 
       if params[:order][:postal_code] == "" ||  params[:order][:address] == "" ||  params[:order][:name] == ""
         @customer = current_customer
-        flash[:notice] = "住所を入力してください"
         render :new
       else
         @order = Order.new(order_params)
