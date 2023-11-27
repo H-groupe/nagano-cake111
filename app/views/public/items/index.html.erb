@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-2">
+    <div class="col-2 pt-4">
       <%= render "public/searches/genre", genres: @genres %>
     </div>
     <div class="col-10">
-      <div class="row ml-3 mb-3">
-        <div class="item-title col-3">
-          <h1>商品一覧<i class="fa-solid fa-utensils"></i></h1>
+      <div class="row ml-3 mb-3 justify-content-md-center">
+        <div class="item-title col-10">
+          <h1 class="text-center justify-content-md-center">
+            <i class="fa-solid fa-cake-candles" style="color: #ffd970;"></i>
+              商品一覧
+            <i class="fa-solid fa-utensils" style="color: #e3e3e3;"></i>
+          </h1>
           <%#= link_to 'Latest',items_path(latest: true) %>
           <%#= link_to 'Price:High to Low', items_path(price_high_to_low: true) %>
           <%#= link_to'Price:Low to High', items_path(price_low_to_high: true) %>
@@ -17,8 +21,8 @@
             <div class="col-3 card-content card">
               <%= link_to item_path(item) do %>
                 <%= image_tag item.get_item_image(400,200) %>
-                <p class="card-name"><%= item.name %></p>
-                <span class="card-price top_item_pricelink">
+                <p class="card-name", style="color:#48120E;"><%= item.name %></p>
+                <span class="card-price top_item_pricelink", style="color:#48120E;">
                   <%= number_to_currency(item.price_excluding_tax, unit: "円", strip_insignificant_zeros: true) %>
                 </span>
               <% end %>

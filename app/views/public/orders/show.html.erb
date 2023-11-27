@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="kakomi-te1">注文履歴詳細</div>
+    <div class="kakomi-te1">
+      <div class="orders-title">
+        注文履歴詳細
+      </div>
+    </div>
   </div>
     
-<div><%= flash[:notice] %></div>
+  <div><%= flash[:notice] %></div>
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-9 pt-5 mx-auto text-center font-weight-bold">
-      <table class="table table-hover">
+      <table class="table table-hover", style="color: #48120E;">
         <tbody>
           <tr>
             <td class="table-danger">注文日</td>
@@ -57,7 +61,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-4 col-lg-9 pt-5 mx-auto text-center font-weight-bold">
-      <table class="table table-hover">
+      <table class="table table-hover", style="color: #48120E;">
         <thead>
           <tr>
             <th class="col-3 table-danger">商品</th>
