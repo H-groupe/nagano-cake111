@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get '/customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
     get "search" => "searches#search"
+    post 'customers/sign_out' => 'sessions#destroy'
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
     resources :orders, only: [:new, :index, :show, :create,] do
       collection do

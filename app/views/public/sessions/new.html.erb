@@ -9,7 +9,7 @@
       <h3>会員の方はこちらからログイン</h3>
     </div>
   </div>
-  <%= form_with model: @customer, url: new_customer_session_path do |f| %>
+  <%= form_with model: @customer, url: customer_session_path do |f| %>
     <div class="form-row">
       <div class="col-3 form-group mt-5 ml-5">
         <%= f.label :メールアドレス %>
