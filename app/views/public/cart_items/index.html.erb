@@ -1,9 +1,9 @@
 <div class="container">
   <div class="form-row">
-    <div class="col-9 form-group">
-      <h1>ショッピングカート</h1>
+    <div class="col-5 form-group cart-item-title">
+      <h1>ショッピングカート<i class="fa-solid fa-cart-shopping"></i></h1>
     </div>
-    <div class="col-3 form-group">
+    <div class="col-5 form-group ml-5 mt-5">
       <%= link_to "カート内を空にする", all_destroy_cart_items_path,method: :delete, class:"btn btn-light", style: "background-color: #f5b1aa; color: #664e3d;" %>
     </div>
   </div>

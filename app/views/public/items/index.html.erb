@@ -4,36 +4,29 @@
       <%= render "public/searches/genre", genres: @genres %>
     </div>
     <div class="col-10">
-      <div class="row">
-        <h1>商品一覧</h1>
-
-        <%#= link_to 'Latest',items_path(latest: true) %>
-
-        <%#= link_to 'Price:High to Low', items_path(price_high_to_low: true) %>
-
-        <%#= link_to'Price:Low to High', items_path(price_low_to_high: true) %>
+      <div class="row ml-3 mb-3">
+        <div class="item-title col-3">
+          <h1>商品一覧<i class="fa-solid fa-utensils"></i></h1>
+          <%#= link_to 'Latest',items_path(latest: true) %>
+          <%#= link_to 'Price:High to Low', items_path(price_high_to_low: true) %>
+          <%#= link_to'Price:Low to High', items_path(price_low_to_high: true) %>
+        </div>
       </div>
-      <div class="item d-flex row">
+      <div class="item  card-img d-flex row">
           <% @items.each do |item| %>
-            <div class="col-3">
+            <div class="col-3 card-content card">
               <%= link_to item_path(item) do %>
                 <%= image_tag item.get_item_image(400,200) %>
-                <p><%= item.name %></p>
-                <span>
+                <p class="card-name"><%= item.name %></p>
+                <span class="card-price top_item_pricelink">
                   <%= number_to_currency(item.price_excluding_tax, unit: "円", strip_insignificant_zeros: true) %>
                 </span>
               <% end %>
             </div>
           <% end %>
       </div>
-    </div>
-    <div class = "container">
       <div class="row justify-content-center mt-5">
-        <div class="all__paginate">
-          <span class="marker-P-green">
-            <%= paginate @items %>
-          </span>
-        </div>
+        <%= paginate @items %>
       </div>
     </div>
   </div>
