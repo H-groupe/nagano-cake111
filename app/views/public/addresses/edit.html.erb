@@ -1,17 +1,23 @@
 <div class="container">
   <div class="row">
+    <div class="col-3">
+      <h3 class="my-3 address-title text-center">
+        配送先編集
+        <i class="fa-solid fa-truck" style="color: #48120E;"></i>
+      </h3>
+    </div>
+  </div>
+  <div class="row">
     <div class="col">
         <%= form_with model: @address, url: address_path(@address.id), method: :patch do |f| %>
-        <table class="table table-borderless">
-        <h3 class="my-5">配送先編集</h3>
-        <tr>
-         <td>郵便番号</td>
-         <td><%= f.text_field :postal_code %></td>
+        <table class="table table-borderless", style="color: #48120E;">
+          <td>郵便番号</td>
+          <td><%= f.text_field :postal_code %></td>
         </tr>
 
         <tr>
-         <td>住所</td>
-         <td><%= f.text_field :address %></td>
+          <td>住所</td>
+          <td><%= f.text_field :address %></td>
         <tr>
 
         <tr>
@@ -20,7 +26,7 @@
         </tr>
 
         <tr>
-         <td><%= f.submit '変更内容を保存', class: "btn font-bold ", style: "background-color: #e2eda8;" %></td>
+          <td><%= f.submit '変更内容を保存', class: "btn font-bold ", style: "background-color: #e2eda8; color: #48120E;" %></td>
         </tr>
         </table>
         <% end %>

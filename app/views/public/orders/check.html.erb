@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
      <div class= "col text-center order-check-title">
-      <font size="7" face="Times New Roman"><i class="fa-solid fa-clipboard-list"></i>注文情報確認<i class="fa-solid fa-pen-clip"></i></font><br/>
+      <font size="7" face="Times New Roman">
+        <i class="fa-solid fa-clipboard-list"></i>
+          注文情報確認
+        <i class="fa-solid fa-pen-clip"></i>
+      </font>
      </div>
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-7 pt-5 mx-auto text-center font-weight-bold ">
-      <table class="table table-hover">
+      <table class="table table-hover", style="color:#48120E;">
         <thead>
           <tr>
             <th class="col-1 table-danger"></th>
@@ -37,7 +41,7 @@
       </table>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-3 pt-5 mx-auto text-center font-weight-bold">
-      <table class="table table-bordered">
+      <table class="table table-bordered", style="color:#48120E;">
         <tbody>
           <tr>
             <td class="table-danger">送料</td>
@@ -55,7 +59,7 @@
       </table>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-6 pt-5 mx-auto text-center font-weight-bold">
-      <table class="table table-bordered">
+      <table class="table table-bordered", style="color:#48120E;">
         <tbody>
           <tr>
             <td class="table-danger">支払方法</td>
@@ -83,7 +87,7 @@
       <%= f.hidden_field :total_price, value: @postage + @sum %>
   <div class="row">
     <div class="col-12 ml-5 mb-5">
-      <%= f.submit "注文を確定する", class:"btn btn-light", style: "background-color: #ffe9a9; color: #664e3d;" %>
+      <%= f.submit "注文を確定する", class:"btn btn-light", style: "background-color: #ffe9a9; color: #48120E;;" %>
     </div>
   <div>
   <% end %>

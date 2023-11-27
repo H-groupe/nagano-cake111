@@ -7,7 +7,7 @@
       <%= link_to "カート内を空にする", all_destroy_cart_items_path,method: :delete, class:"btn btn-light", style: "background-color: #f5b1aa; color: #664e3d;" %>
     </div>
   </div>
-    <table class="table table-striped">
+    <table class="table table-striped", style="color:#48120E;">
       <div class="row">
           <tr>
             <th></th>
@@ -31,7 +31,7 @@
             <td>
               <%= form_with model: cart_item, url: cart_item_path(cart_item),local: true,method: :patch do |f| %>
                 <%= f.number_field :quantity, min:1, max:10, id: "quantity_cart" %>
-                <%= f.submit "変更", class: "btn font-bold ", style: "background-color: #e2eda8;" %>
+                <%= f.submit "変更", class: "btn font-bold ", style: "background-color: #e2eda8; color:#48120E;" %>
               <% end %>
             </td>
             <td>
@@ -49,11 +49,11 @@
     </table>
     <div class="row">
       <div class="col-3 mt-5">
-        <%= link_to "買い物を続ける", items_path, class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %>
+        <%= link_to "買い物を続ける", root_path, class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %>
       </div>
       <div class="col-5"></div>
       <div class="col-4">
-        <table class="table table-striped">
+        <table class="table table-striped", style="color:#48120E;">
           <tr>
             <th>合計金額</th>
             <td><%= total %></td>
