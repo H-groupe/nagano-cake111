@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-2"></div>
       <div class="col-10">
-        <div class="row">
-          <h1>商品一覧</h1>
+        <div class="row order-new-title col-4">
+          <h1>注文情報入力<i class="fa-solid fa-money-check-dollar"></i></h1>
         </div>
       </div>
       <%= form_with model: @order, url: check_orders_path, method: :post do |f| %>
       <div class="container p-2">
         <div class="row">
           <div class="font-weight-bold">
-            <p>支払方法<p>
+            <p class= "under-line">支払方法<p>
           </div>
         </div>
         <div class="row">
@@ -30,7 +30,7 @@
       <div class="container p-2">
         <div class="row">
           <div class="font-weight-bold">
-            <p>お届け先<p>
+            <p class= "under-line">お届け先<p>
           </div>
         </div>
         <div class="row p-2">

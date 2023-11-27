@@ -275,6 +275,24 @@ body{
   height: 100%;
 }
 
+.item-title{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #3cb371;
+    box-shadow: 0px 0px 0px 10px #3cb371;
+    border: dashed 2px white;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC);
+
+.item-line {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  background: url(http://webcreatorbox.com/sample/images/check.png) repeat-x 0 25px;
+  display: inline-block;
+  padding: 0 10px
+}
+
 .all__paginate{
   width: 100%;
   margin: auto;
@@ -319,4 +337,32 @@ body{
   font-weight: bold;
   color: #6bb324;
   padding: 10px;
+}
+
+.cart-item-title{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #ffa500;
+    box-shadow: 0px 0px 0px 10px #ffa500;
+    border: dashed 2px white;
+}
+
+.order-new-title{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #e73562;
+    box-shadow: 0px 0px 0px 10px #e73562;
+    border: dashed 2px white;
+}
+
+.under-line {
+  background: linear-gradient(transparent 30%, #f5b2ac 30%);
+}
+
+.order-check-title{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #ffedab;
+    box-shadow: 0px 0px 0px 10px #ffedab;
+    border: dashed 2px white;
 }
