@@ -1,5 +1,18 @@
-<h3><%= @customer.family_name %><%= @customer.first_name %>さんの注文履歴</h3>
-  <div class="container">
+<div class="container">
+  <div class="row　pb-5 justify-content-md-center">
+    <div style=" color: white; background: #cbe6be; padding: 10px; border: 2px dashed rgba(255 , 255 , 255 , 0.5);
+                          -moz-border-radius: 6px; -moz-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                          -webkit-border-radius: 6px; -webkit-box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5);
+                          border-radius: 6px; box-shadow: 0 0 0 5px #cbe6be , 0 2px 3px 5px rgba(0 , 0 , 0 , 0.5); ">
+      <h4 class="text-center", style="color: #48120E">
+        <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+         <%= @customer.family_name %><%= @customer.first_name %>さんの注文履歴
+ 
+        <i class="fa-solid fa-cookie-bite" style="color: #b37039;"></i>
+      </h4>
+    </div>
+  </div>
+  <div class = "mt-4 pt-3">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -22,4 +35,5 @@
      </tbody>
     </table>
   </div>
-  <div class = "mx-auto" ><%= paginate @orders %></div>
+</div>
+<div class = "mx-auto" ><%= paginate @orders %></div>
