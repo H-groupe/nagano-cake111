@@ -1,12 +1,11 @@
 class Admin::OrderDetailsController < ApplicationController
   def show
-    @order_detail = OrderDetail.find(params[:id])
-    @order = @order_detail.order
+    @order = Order.find(params[:id]) #<=views/admin/homes/topの遷移するpathがorder.idを使っているためOrderDetailsからidを取ってくるのではなくてOrderから取ってくる。
     @customer = @order.customer
     @orders = @customer.orders.page(params[:page])
   end
 
-  
+
   def update
     @order_detail = OrderDetail.find(params[:id])
     @order = @order_detail.order
@@ -22,11 +21,11 @@ class Admin::OrderDetailsController < ApplicationController
                #is_updated = false
            #end
         #end
-        @order.update(status:"preparing")if is_updated 
+        @order.update(status:"preparing")if is_updated
     end
-    redirect_to admin_order_path(@order_detail.order), notice:"製作ステータスを更新しました"   
+    redirect_to admin_order_path(@order_detail.order), notice:"製作ステータスを更新しました"
   end
-  
+
   def order_detail_params
     params.require(:order_detail).permit(:making_status)
   end
