@@ -47,9 +47,11 @@
       </table>
     </div>
   </div>
+<div class="row">
+  <p class="font-weight-bold">
+    <div class="all__paginate">
+      <%= paginate @orders %>
+    </div>
+  </p>
 </div>
 
-  <div class="row">
-    <div class="col-2 pt-2 link-dark">
-      <p class="font-weight-bold"><%= paginate @orders %></p>
-  </div>
