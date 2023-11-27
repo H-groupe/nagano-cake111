@@ -11,13 +11,14 @@
             </div>
           </div>
         </div>
-        <% if customer_signed_in? && current_customer.present? %>
-          <div class="text-warning ml-5"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
-        <% end %>
+
         <div class="btn-group ml-auto">
           <nav class="d-flex align-items-center">
             <ul class="navbar-nav list-group-horizontal ">
               <% if customer_signed_in? %>
+                <% if customer_signed_in? && current_customer.present? %>
+                  <div class="text-warning ml-4 mt-2"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
+                <% end %>
                 <div class="search_form mr-2">
                   <%= render 'public/items/serach' %>
                 </div>
@@ -41,9 +42,13 @@
                     <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn font-bold ", style: "color: #48120E;"%></li>
                   </div>
                 </div>
+
               <% elsif admin_signed_in? %>
-                <div style="border: 2px solid #ededa8; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
-                  <div style="background-color: #ededa8; border-radius: 5px;">
+                <% if customer_signed_in? && current_customer.present? %>
+                  <div class="text-warning ml-4 mt-2"><%= "ようこそ、#{current_customer.family_name}さん！" %></div>
+                <% end %>
+                <div style="border: 2px solid #d6d6a5; margin-left: 5px; padding: 2px; border-radius: 5px; text-align: center;">
+                  <div style="background-color: #d6d6a5; border-radius: 5px;">
                     <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn font-bold ", style: " color: #48120E;"%></li>
                   </div>
                 </div>
@@ -92,10 +97,12 @@
                   </div>
                 </div>
               <% end %>
+
             </ul>
           </nav>
         </div>
       </div>
+
     </div>
   </div>
 </div>
