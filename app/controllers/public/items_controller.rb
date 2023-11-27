@@ -3,7 +3,7 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items,@sort = get_items(params)
-    @items = Item.page(params[:page])
+    @items = Item.page(params[:page]).where(is_sales_status:true)
     @genres = Genre.all
   end
 
