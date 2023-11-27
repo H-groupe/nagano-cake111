@@ -24,7 +24,11 @@
           <%= f.text_field :name %>
           </div>
           <div class = "co-3">
-          <%= f.submit "新規登録", class: "btn btn-primary" %>
+            <div style="border: 2px solid #bbc8e6; padding: 2px; border-radius: 5px; text-align: center;">
+                <div style="background-color: #bbc8e6; border-radius: 5px;">
+                  <%= f.submit "新規登録", class: "btn font-bold" %>
+                </div>
+              </div>
         </div>
     </div>
     <% end %>
@@ -47,9 +51,12 @@
                 </div>
               </div>
             </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
         <% end %>
-        </tr>
       </table>
     </div>
   </div>
