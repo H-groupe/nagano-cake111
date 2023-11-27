@@ -18,11 +18,15 @@
             <td>宛名</td>
             <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
           </tr>
+    </div>
+  </div>
+    <div class="row">
+      <div style="border: 2px solid #bee6df; padding: 2px; border-radius: 5px; text-align: center;">
+        <div style="background-color: #bee6df; border-radius: 5px;">
+          <%= f.submit "新規登録" %>
         </div>
-
-        <tr>
-        <td><%= f.submit "新規登録" %></td>
-        </tr>
+      </div>
+    </div>
         <% end %>
         </table>
 
@@ -47,4 +51,4 @@
           </tbody>
           <% end %>
         </table>
-
+</div>

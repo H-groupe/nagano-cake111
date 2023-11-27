@@ -16,7 +16,7 @@
     <!-- ジャンル用form_forで記載する時削除 -->
  
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
-        <div class="row mx-auto pt-4">
+        <div class="row mx-auto pt-4 align-items-center">
           <div class = "col-2 ">
             <lavel>ジャンル登録</lavel>
           </div>
@@ -26,7 +26,7 @@
           <div class = "co-3">
             <div style="border: 2px solid #bbc8e6; padding: 2px; border-radius: 5px; text-align: center;">
                 <div style="background-color: #bbc8e6; border-radius: 5px;">
-                  <%= f.submit "新規登録", class: "btn font-bold" %>
+                  <%= f.submit "新規登録", class: "btn btn-lg" %>
                 </div>
               </div>
         </div>
@@ -44,19 +44,10 @@
         <% @genres.each do |genre| %>
           <tr>
             <td><%= genre.name %></td>
-            <td>
-              <div style="border: 2px solid #ffe9a9; padding: 2px; border-radius: 5px; text-align: center;">
-                <div style="background-color: #ffe9a9; border-radius: 5px;">
-                  <%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn font-bold" %>
-                </div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn font-bold", style: "background-color: #ffe9a9; color: #1A120B;" %></td>
           </tr>
         <% end %>
+        </tr>
       </table>
     </div>
   </div>
