@@ -61,7 +61,11 @@
                 販売ステータス
               </div>
               <div class = "col-9 text-success">
-               <%= @item.is_sales_status ? '販売中' : '販売中止中'  %>
+               <% if @item.is_sales_status == true %>
+                <p class = "text-success">販売中</p>
+              <% else%>
+              　<p class = "text-secondary">販売停止中</p>
+              <% end %>
               </div>
             </div>
           </div>
