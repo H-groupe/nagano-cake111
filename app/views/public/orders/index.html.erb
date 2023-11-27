@@ -1,13 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-3 mb-3 mx-auto text-center" >
-      <h3>注文履歴一覧</h3>
+      <div class="orders-title">
+        <h3>
+          注文履歴一覧
+          <i class="fa-solid fa-clipboard-list" style="color: #48120E;"></i>
+        </h3>
+      </div>
     </div>
     <div><%= flash[:notice] %></div>
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-12 pt-5 mx-auto text-center font-weight-bold">
-      <table class="table table-bordered border-info">
+      <table class="table table-bordered border-info", style="color:#48120E;">
         <thead>
           <tr>
             <th class="col-1 table-danger">注文日</th>

@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row" style="margin-bottom: 150px; margin-top:150px;">
     <div class="col-2">
-      <%= render "public/searches/genre", genres: @genres %>
+        <%= render "public/searches/genre", genres: @genres %>
     </div>
     <div class="col-10">
       <div class="row">
-        <div class="col-4 card">
+        <div class="col-4 card pt-5">
           <%= image_tag @item.get_item_image(400,300) %>
         </div>
         <div class="col-8">
           <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-            <div class="row ml-5 mb-5 item-line">
+            <div class="row ml-5 mb-5 item-line", style="color:#48120E;">
               <h2><%= @item.name %></h2>
             </div>
-            <div class="row ml-5 mb-5 item-line">
+            <div class="row ml-5 mb-5 item-line", style="color:#48120E;">
               <h4><%= @item.introduction %></h4>
             </div>
-            <div class="row ml-5 mb-5 ">
+            <div class="row ml-5 mb-5 ", style="color:#48120E;">
               <h4><%= number_to_currency(@item.price_excluding_tax, unit: "円", strip_insignificant_zeros: true) %></h4>
-              <p>(税抜)</p>
+              <p>(税込)</p>
             </div>
             <div class="form-row ml-5 mb-5">
               <div class="col-3 form-group">
@@ -28,7 +28,7 @@
               <div class="col-4 form-group">
                 <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
                   <div style="background-color: #e2eda8; border-radius: 5px;">
-                    <%= f.submit "カートに入れる", class: "btn font-bold " %>
+                    <%= f.submit "カートに入れる", class: "btn font-bold ", style: "color:#48120E;" %>
                   </div>
                 </div>
               </div>
