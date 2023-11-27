@@ -339,6 +339,22 @@ body{
   padding: 10px;
 }
 
+.address-title{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #85cc85;
+    box-shadow: 0px 0px 0px 10px #85cc85;
+    border: dashed 2px white;
+}
+
+.orders-title{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #cab8d9;
+    box-shadow: 0px 0px 0px 10px #cab8d9;
+    border: dashed 2px white;
+}
+
 .cart-item-title{
     padding: 0.2em 0.5em;
     margin: 2em 0;
@@ -350,8 +366,16 @@ body{
 .order-new-title{
     padding: 0.2em 0.5em;
     margin: 2em 0;
-    background: #e73562;
-    box-shadow: 0px 0px 0px 10px #e73562;
+    background: #f19ca7;
+    box-shadow: 0px 0px 0px 10px #f19ca7;
+    border: dashed 2px white;
+}
+
+.customer-edit-title{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #85b4cc;
+    box-shadow: 0px 0px 0px 10px #85b4cc;
     border: dashed 2px white;
 }
 
