@@ -85,7 +85,7 @@
     </div>
     <div class="form-row">
       <div class="col-3 form-group offset-3">
-        <%= f.submit "新規登録", class:"btn btn-success form-control" %>
+        <%= f.submit "新規登録", class: "btn font-bold ", style: "background-color: #e2eda8;" %>
       </div>
     </div>
   <% end %>
@@ -95,8 +95,12 @@
     </div>
   </div>
   <div class="form-row justify-content-center">
-    <div class="col-3 form-group">
-    <p class=""><%= link_to "こちら", new_customer_session_path %>からログインしてください。</p>
+    <div class="col-4 form-group mt-3 ml-3">
+      <div class="kakomi-te1">
+        <span class="marker-P-green">
+          <%= link_to "こちら", new_customer_session_path %></span>
+          からログインしてください。
+      </div>
     </div>
   </div>
 </div>
