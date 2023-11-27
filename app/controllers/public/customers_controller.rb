@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
 
+
   def show
     @customer = current_customer
   end
@@ -18,6 +19,15 @@ class Public::CustomersController < ApplicationController
        render 'edit'
     end
   end
+  
+  def withdraw
+    @customer = current_customer
+    if @customer.update(is_membership_status: false)
+      sign_out(@customer)
+       flash[:notice]= "退会が完了しました。"
+       redirect_to root_path
+    end
+  end
 
   private
 
@@ -32,4 +42,6 @@ class Public::CustomersController < ApplicationController
                                      :email
                                      )
   end
+  
+  
 end
