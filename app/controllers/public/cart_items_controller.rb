@@ -15,7 +15,6 @@ class Public::CartItemsController < ApplicationController
           flash[:notice] = "カート内に商品が追加されました。"
           @cart_items = current_customer.cart_items.all
           render 'index'
-
     else
       render 'index'
     end
