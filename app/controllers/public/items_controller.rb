@@ -1,5 +1,5 @@
 class Public::ItemsController < ApplicationController
-  before_action :authenticate_customer!, only: [:show]
+  #before_action :authenticate_customer!, only: [:show]
 
   def index
     @items,@sort = get_items(params)
