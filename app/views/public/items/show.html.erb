@@ -25,13 +25,23 @@
                 <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
                 <%= f.hidden_field :item_id,:value => @item.id %>
               </div>
-              <div class="col-4 form-group">
-                <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
-                  <div style="background-color: #e2eda8; border-radius: 5px;">
-                    <%= f.submit "カートに入れる", class: "btn font-bold ", style: "color:#48120E;" %>
+              <% if customer_signed_in? %>
+                <div class="col-4 form-group">
+                  <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #e2eda8; border-radius: 5px;">
+                      <%= f.submit "カートに入れる", class: "btn font-bold ", style: "color:#48120E;" %>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% else %>
+                <div class="col-6 p-3">
+                  <div style="border: 2px solid #e2eda8; padding: 2px; border-radius: 5px; text-align: center;">
+                    <div style="background-color: #e2eda8; border-radius: 5px;">
+                      <%= link_to "購入する方はこちらから会員登録お願いします", cart_items_path %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
